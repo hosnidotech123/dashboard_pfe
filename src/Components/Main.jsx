@@ -21,17 +21,18 @@ function Main() {
                         <span className="badge badge-xs badge-primary indicator-item">30</span>
                       </div>
                     </button>
-                    <div   tabindex="0" role="button" className="btn btn-ghost btn-circle avatar">
+                    <div  className="avatar online ml-2">
                         <div className="w-10 rounded-full">
-                          <img alt="Tailwind CSS Navbar component" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
+                          <img src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" />
                         </div>
-                    </div>
+                      </div>
               </div>
           </div>
           
           
               <Routes>
                 <Route path='/' element={<Dashboard/>}/>
+                <Route path='*' element={<Dashboard/>}/>
                 <Route path='/clients' element={<Clients/>}/>
                 <Route path='/notifications' element={<Notifications/>}/>
                 <Route path='/claims' element={<Claims/>}/>

@@ -49,7 +49,7 @@ export default function Sidebar() {
       <hr style={{ margin: '30px 0px' }} />
       <ul>
                 <li><Link to="/">Home</Link></li>
-                <li><Link to="/clients">Clients</Link></li>
+                <li><Link to="/clients">Customers</Link></li>
                 <li><Link to="/claims">Claims</Link></li>
                 <li><Link to="/notifications">Notifications</Link></li>
                 <li><Link to="/faq">FAQ</Link></li>
