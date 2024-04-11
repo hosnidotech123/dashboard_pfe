@@ -54,7 +54,7 @@ const data = {
 export default function LineChart() {
   return (
     <div >
-      <Line height={700} width={950} options={options} data={data} />
+      <Line height={760} width={950} options={options} data={data} />
     </div>
   )
 }

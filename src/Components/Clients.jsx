@@ -1,22 +1,27 @@
 import React from 'react'
 
+
+
+
 function Clients() {
   return (
-    <div>
-        <div className="overflow-x-auto bg-[#374151]">
-          <table className="table">
+
+    
+   
+        <div className="overflow-x-auto bg-[#0080ff] rounded-[10px] h-[100%]">
+          <table className="table" >
             {/* head */}
             <thead>
               <tr>
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white "/>
                   </label>
                 </th>
-                <th>Name</th>
-                <th>Job</th>
-                <th>Favorite Color</th>
-                <th></th>
+                <th className='text-white'>Name</th>
+                <th className='text-white'>Email</th>
+                <th className='text-white'>Favorite Color</th>
+                <th className='text-white'>Details</th>
               </tr>
             </thead>
             <tbody>
@@ -24,7 +29,7 @@ function Clients() {
               <tr>
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white " />
                   </label>
                 </th>
                 <td>
@@ -35,117 +40,208 @@ function Clients() {
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">Hart Hagerty</div>
-                      <div className="text-sm opacity-50">United States</div>
+                      <div className="font-bold text-white">Hart Hagerty</div>
+                      <div className="text-sm ">Company name</div>
                     </div>
                   </div>
                 </td>
-                <td>
-                  Zemlak, Daniel and Leannon
-                  <br/>
-                  <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+                <td className="font-bold text-white">
+                 user_123@gmail.com
                 </td>
-                <td>Purple</td>
+                <td className="font-bold text-white">Purple</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <button onClick={()=>alert("id_1")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    details</button>                
                 </th>
               </tr>
-              {/* row 2 */}
               <tr>
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white " />
                   </label>
                 </th>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
-                        <img src="https://daisyui.com/tailwind-css-component-profile-4@56w.png" alt="Avatar Tailwind CSS Component" />
+                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">Brice Swyre</div>
-                      <div className="text-sm opacity-50">China</div>
+                      <div className="font-bold text-white">Hart Hagerty</div>
+                      <div className="text-sm ">Company name</div>
                     </div>
                   </div>
                 </td>
-                <td>
-                  Carroll Group
-                  <br/>
-                  <span className="badge badge-ghost badge-sm">Tax Accountant</span>
+                <td className="font-bold text-white">
+                 user_123@gmail.com
+                 
                 </td>
-                <td>Red</td>
+                <td className="font-bold text-white">Purple</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    details</button>                
                 </th>
               </tr>
-              {/* row 3 */}
+
               <tr>
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white " />
                   </label>
                 </th>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
-                        <img src="https://daisyui.com/tailwind-css-component-profile-5@56w.png" alt="Avatar Tailwind CSS Component" />
+                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">Marjy Ferencz</div>
-                      <div className="text-sm opacity-50">Russia</div>
+                      <div className="font-bold text-white">Hart Hagerty</div>
+                      <div className="text-sm ">Company name</div>
                     </div>
                   </div>
                 </td>
-                <td>
-                  Rowe-Schoen
-                  <br/>
-                  <span className="badge badge-ghost badge-sm">Office Assistant I</span>
+                <td className="font-bold text-white">
+                 user_123@gmail.com
+                 
                 </td>
-                <td>Crimson</td>
+                <td className="font-bold text-white">Purple</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    details</button>                
                 </th>
               </tr>
-              {/* row 4 */}
               <tr>
                 <th>
                   <label>
-                    <input type="checkbox" className="checkbox" />
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white " />
                   </label>
                 </th>
                 <td>
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
-                        <img src="https://daisyui.com/tailwind-css-component-profile-3@56w.png" alt="Avatar Tailwind CSS Component" />
+                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
                       </div>
                     </div>
                     <div>
-                      <div className="font-bold">Yancy Tear</div>
-                      <div className="text-sm opacity-50">Brazil</div>
+                      <div className="font-bold text-white">Hart Hagerty</div>
+                      <div className="text-sm ">Company name</div>
                     </div>
                   </div>
                 </td>
-                <td>
-                  Wyman-Ledner
-                  <br/>
-                  <span className="badge badge-ghost badge-sm">Community Outreach Specialist</span>
+                <td className="font-bold text-white">
+                 user_123@gmail.com
+                 
                 </td>
-                <td>Indigo</td>
+                <td className="font-bold text-white">Purple</td>
                 <th>
-                  <button className="btn btn-ghost btn-xs">details</button>
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    details</button>                
                 </th>
               </tr>
+              <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white " />
+                  </label>
+                </th>
+                <td>
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-white">Hart Hagerty</div>
+                      <div className="text-sm ">Company name</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="font-bold text-white">
+                 user_123@gmail.com
+                 
+                </td>
+                <td className="font-bold text-white">Purple</td>
+                <th>
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    details</button>                
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white " />
+                  </label>
+                </th>
+                <td>
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-white">Hart Hagerty</div>
+                      <div className="text-sm ">Company name</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="font-bold text-white">
+                 user_123@gmail.com
+                 
+                </td>
+                <td className="font-bold text-white">Purple</td>
+                <th>
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    details</button>                
+                </th>
+              </tr>
+              <tr>
+                <th>
+                  <label>
+                    <input type="checkbox" className="checkbox border-solid border-2 border-white " />
+                  </label>
+                </th>
+                <td>
+                  <div className="flex items-center gap-3">
+                    <div className="avatar">
+                      <div className="mask mask-squircle w-12 h-12">
+                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                      </div>
+                    </div>
+                    <div>
+                      <div className="font-bold text-white">Hart Hagerty</div>
+                      <div className="text-sm ">Company name</div>
+                    </div>
+                  </div>
+                </td>
+                <td className="font-bold text-white">
+                 user_123@gmail.com
+                 
+                </td>
+                <td className="font-bold text-white">Purple</td>
+                <th>
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    details</button>                
+                </th>
+              </tr>
+              
+             
+              
+             
+              
+             
+              
             </tbody>
     
             
           </table>
         </div>
-    </div>
+   
   )
 }
 

@@ -10,7 +10,7 @@ import Faq from './Faq'
 
 function Main() {
   return (
-    <div className="main">
+    <div className="main" >
       <div className="board" style={{padding: "20px"}}>
           <div className="x_header" >
               <h1 style={{fontSize:30}} className="text-black font-bold">Dashboard</h1>
@@ -29,7 +29,7 @@ function Main() {
               </div>
           </div>
           
-          
+           <div className='h-[100%]' >
               <Routes>
                 <Route path='/' element={<Dashboard/>}/>
                 <Route path='*' element={<Dashboard/>}/>
@@ -38,8 +38,8 @@ function Main() {
                 <Route path='/claims' element={<Claims/>}/>
                 <Route path='/faq' element={<Faq/>}/>
               </Routes>
-          
             
+              </div>
       </div>
       
     
