@@ -32,11 +32,12 @@
       list-style: none;
   }
   ul li{
-      padding:10px 0px ;
+      /* padding:10px 0px ; */
       background-color: #0080ff;
       margin-bottom: 25px;
       border-radius: 10px;
       padding-left: 8px;
+      padding: 0;
       
       
   }
@@ -45,6 +46,10 @@
       font-size: 20px;
       font-weight: bold;
       color: white;
+  }
+
+  ul li button{
+    padding: 10px 0px;
   }
 
 }

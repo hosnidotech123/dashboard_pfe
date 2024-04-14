@@ -1,9 +1,12 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link ,useNavigate} from 'react-router-dom'
 
 
 
 export default function Sidebar() {
+
+  const navigate=useNavigate()
+
   return (
     <div className="sidebar">
       <div className="head">
@@ -48,11 +51,11 @@ export default function Sidebar() {
       </div>
       <hr style={{ margin: '30px 0px' }} />
       <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/clients">Customers</Link></li>
-                <li><Link to="/claims">Claims</Link></li>
-                <li><Link to="/notifications">Notifications</Link></li>
-                <li><Link to="/faq">FAQ</Link></li>
+      <li style={{padding:"0"}}><button onClick={()=>navigate('/')}  className='text-white text-[20px] font-bold w-[100%]'>Home</button></li>
+                <li><button onClick={()=>navigate('/clients')}  className='text-white text-[20px] font-bold w-[100%]'>Clients</button></li>
+                <li><button onClick={()=>navigate('/claims')}  className='text-white text-[20px] font-bold w-[100%]'>Claims</button></li>
+                <li><button onClick={()=>navigate('/notifications')}  className='text-white text-[20px] font-bold w-[100%]'>Notifications</button></li>
+                <li><button onClick={()=>navigate('/faq')}  className='text-white text-[20px] font-bold w-[100%]'>FAQ</button></li>
         </ul>
     </div>
 
