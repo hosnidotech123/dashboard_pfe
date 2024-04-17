@@ -1,5 +1,12 @@
 import React from 'react'
 import { Link ,useNavigate} from 'react-router-dom'
+import { IoHomeSharp } from "react-icons/io5";
+import { IoPeopleSharp } from "react-icons/io5";
+import { IoNotificationsSharp } from "react-icons/io5";
+import { IoHelpCircleSharp } from "react-icons/io5";
+import { TiWarning } from "react-icons/ti";
+
+
 
 
 
@@ -51,12 +58,36 @@ export default function Sidebar() {
       </div>
       <hr style={{ margin: '30px 0px' }} />
       <ul>
-      <li style={{padding:"0"}}><button onClick={()=>navigate('/')}  className='text-white text-[20px] font-bold w-[100%]'>Home</button></li>
-                <li><button onClick={()=>navigate('/clients')}  className='text-white text-[20px] font-bold w-[100%]'>Clients</button></li>
-                <li><button onClick={()=>navigate('/claims')}  className='text-white text-[20px] font-bold w-[100%]'>Claims</button></li>
-                <li><button onClick={()=>navigate('/notifications')}  className='text-white text-[20px] font-bold w-[100%]'>Notifications</button></li>
-                <li><button onClick={()=>navigate('/faq')}  className='text-white text-[20px] font-bold w-[100%]'>FAQ</button></li>
-        </ul>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <IoHomeSharp style={{margin:"5px"}} />
+            Home
+            </button>
+          </li>
+
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/clients')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <IoPeopleSharp style={{margin:"5px"}} />
+            Clients
+            </button>
+          </li>
+
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/claims')}  className='text-white text-[20px] font-bold w-[100%]'>
+            <TiWarning style={{margin:"5px"}} />
+              Claims
+              </button>
+         </li>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/notifications')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <IoNotificationsSharp style={{margin:"5px"}} />
+            Notifications
+            </button>
+          </li>  
+
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/faq')}  className='text-white text-[20px] font-bold w-[100%]'>
+            <IoHelpCircleSharp style={{margin:"5px"}} />
+              FAQ
+              </button>
+          </li>
+      </ul>
+
     </div>
 
   )

@@ -41,7 +41,7 @@ const data = {
   labels,
   datasets: [
     {
-      label: 'Customers',
+      label: 'Clients',
       data: data2,
       borderColor: '#0080ff',
       backgroundColor: 'white',

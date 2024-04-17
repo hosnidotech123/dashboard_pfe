@@ -1,44 +1,44 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 function Pagination() {
+
+    let [num,setNum]=useState(1)
+
+    let [curr,setCurr]=useState(1)
+
+    const pages=[
+        {
+            page:num
+        },
+        {
+            page:num+1
+        },
+        {
+            page:num+2
+        },
+        {
+            page:num+3
+        },
+    ]
+
+    const handleCurrentPage=(pg)=>{
+        setCurr(pg)
+    }
   return (
     <div >
         
         <ol className="flex justify-center gap-1 text-xs font-medium">
-            
-
-            <li>
-                <a
-                href="#"
-                className="block size-10 rounded text-[18px] font-bold border border-blue-600 bg-white text-center leading-8 text-blue-900"
-                >
-                1
-                </a>
-            </li>
-
-            <li className="block size-10 text-[18px] font-bold rounded border-blue-600 bg-blue-600 text-center leading-8 text-white">
-                <a href="#">2</a>
-            </li>
-
-            <li>
-                <a
-                href="#"
-                className="block size-10 rounded text-[18px] font-bold border border-blue-600 bg-white text-center leading-8 text-blue-900"
-                >
-                3
-                </a>
-            </li>
-
-            <li>
-                <a
-                href="#"
-                className="block size-10 rounded text-[18px] font-bold border border-blue-600 bg-white text-center leading-8 text-blue-900"
-                >
-                4
-                </a>
-            </li>
-
-            
+                {pages.map((pg,i)=>{return(
+                    <li key={i}>
+                    <a
+                    onClick={()=>handleCurrentPage(pg.page)}
+                    href="#"
+                    className={`flex  justify-center items-center size-10 rounded text-[18px]   font-bold border border-blue-600 bg-white   text-blue-900 ${curr===pg.page && 'text-white bg-blue-400'} `}
+                    >
+                    {pg.page}
+                    </a>
+                </li>
+                )})}
         </ol>
 
     </div>

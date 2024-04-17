@@ -3,15 +3,15 @@ import React from 'react'
 
 function SmallTable() {
   return (
-    <div>
-        <div className="overflow-x-auto bg-[#0080ff]">
+    <div >
+        <div style={{overflowX:"hidden"}} className="overflow-x-auto bg-[#0080ff]">
           <table className="table w-[100%] h-[100%]" >
             {/* head */}
             <thead>
               <tr>
                 <th className='text-white'>Name</th>
                 <th className='text-white'>Email</th>
-                <th className='text-white'>Favorite Color</th>
+                <th className='text-white'>Telephone Number</th>
                 <th className='text-white'>Details</th>
               </tr>
             </thead>
@@ -35,9 +35,9 @@ function SmallTable() {
                   user_123@gmail.com
                  
                 </td>
-                <td className="font-bold text-white">Purple</td>
+                <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
@@ -59,9 +59,9 @@ function SmallTable() {
                   user_123@gmail.com
                  
                 </td>
-                <td className="font-bold text-white">Purple</td>
+                <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
@@ -83,9 +83,9 @@ function SmallTable() {
                   user_123@gmail.com
                  
                 </td>
-                <td className="font-bold text-white">Purple</td>
+                <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
@@ -107,9 +107,9 @@ function SmallTable() {
                   user_123@gmail.com
                  
                 </td>
-                <td className="font-bold text-white">Purple</td>
+                <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
