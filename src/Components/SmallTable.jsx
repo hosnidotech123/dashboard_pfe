@@ -37,7 +37,7 @@ function SmallTable() {
                 </td>
                 <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
+                <button onClick={()=>alert("ed")} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
@@ -61,7 +61,7 @@ function SmallTable() {
                 </td>
                 <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
+                <button onClick={()=>alert("ed")} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
@@ -85,7 +85,7 @@ function SmallTable() {
                 </td>
                 <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
+                <button onClick={()=>alert("ed")} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
@@ -109,7 +109,7 @@ function SmallTable() {
                 </td>
                 <td className="font-bold text-white">0607080905</td>
                 <th>
-                <button onClick={()=>alert("ed")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
+                <button onClick={()=>alert("ed")} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                     details</button>                
                 </th>
               </tr>
