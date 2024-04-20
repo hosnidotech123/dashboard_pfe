@@ -11,7 +11,7 @@ function SmallTable() {
               <tr>
                 <th className='text-white'>Name</th>
                 <th className='text-white'>Email</th>
-                <th className='text-white'>Telephone Number</th>
+                <th className='text-white'>Contact</th>
                 <th className='text-white'>Details</th>
               </tr>
             </thead>
