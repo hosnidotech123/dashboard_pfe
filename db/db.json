@@ -1,0 +1,90 @@
+{
+  "clients": [
+    {
+      "id": "1",
+      "username": "Hart Hagerty",
+      "company": "Rex company",
+      "contact": "0607080904",
+      "email": "user_123@gmail.com",
+      "image": "https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+    },
+    {
+      "id": "2",
+      "username": "John Doe",
+      "company": "ABC Corporation",
+      "contact": "0712345678",
+      "email": "john.doe@example.com",
+      "image": "https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+    },
+    {
+      "id": "3",
+      "username": "Jane Smith",
+      "company": "XYZ Inc.",
+      "contact": "0723456789",
+      "email": "jane.smith@example.com",
+      "image": "https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+    },
+    {
+      "id": "4",
+      "username": "Alice Johnson",
+      "company": "Tech Solutions",
+      "contact": "0734567890",
+      "email": "alice.johnson@example.com",
+      "image": "https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+    },
+    {
+      "id": "5",
+      "username": "Bob Williams",
+      "company": "Global Services",
+      "contact": "0745678901",
+      "email": "bob.williams@example.com",
+      "image": "https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+    },
+    {
+      "id": "6",
+      "username": "Eve Brown",
+      "company": "Innovative Ideas",
+      "contact": "0756789012",
+      "email": "eve.brown@example.com",
+      "image": "https://daisyui.com/tailwind-css-component-profile-2@56w.png"
+    }
+  ],
+  "claims": [
+    {
+      "id": "1",
+      "content": "server doesnt work",
+      "clientId": "1",
+      "status": "pending"
+    },
+    {
+      "id": "2",
+      "content": "need more servers",
+      "clientId": "2",
+      "status": "done"
+    },
+    {
+      "id": "3",
+      "content": "client app crashes frequently",
+      "clientId": "3",
+      "status": "done"
+    },
+    {
+      "id": "4",
+      "content": "database connection error",
+      "clientId": "4",
+      "status": "pending"
+    },
+    {
+      "id": "5",
+      "content": "network latency issues",
+      "clientId": "5",
+      "status": "pending"
+    },
+    {
+      "id": "6",
+      "content": "update UI design",
+      "clientId": "6",
+      "status": "done"
+    }
+  ]
+}

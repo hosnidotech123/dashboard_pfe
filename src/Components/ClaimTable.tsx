@@ -1,11 +1,19 @@
-import React from 'react'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
 import { FaCircle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
+import { Client } from '../model/Client.model';
+import { Claim } from '../model/Claim.model';
+
 
 
 function ClaimTable({ backgroundColor }) {
 
   const navigate=useNavigate()
+
+  const [clients,setClients]=useState<Client[]>([])
+
+  const [claims,setClaims]=useState<Claim[]>([])
 
   const users = [
     {
@@ -60,6 +68,49 @@ function ClaimTable({ backgroundColor }) {
     },
   ]
 
+   const getClients=()=>{
+    axios.get("http://localhost:3000/clients")
+         .then((response)=>{
+          setClients(response.data)
+          
+          
+         })
+         .catch((err)=>{
+          console.log(err)
+         }
+        )
+   }
+
+   const getClaims=()=>{
+    axios.get(`http://localhost:3000/claims`)
+    .then((response)=>{
+     setClaims(response.data)
+     
+    })
+    .catch((err)=>{
+     console.log(err)
+    }
+   )
+
+   }
+
+
+   function getClaimById(id:number):Claim|undefined{
+      return claims.find(item=>item.id===id)
+   }
+
+
+
+   
+
+  useEffect(()=>{
+    getClients()
+  
+    getClaims()
+    
+
+  },[])
+
 
   return (
 
@@ -73,7 +124,7 @@ function ClaimTable({ backgroundColor }) {
             </label>
           </th>
           <th className='text-white'>Creator</th>
-          <th className='text-white'>Email</th>
+          <th className='text-white'>Content</th>
           <th className='text-white'>Contact</th>
           <th className='text-white'>Status</th>
         </tr>
@@ -81,8 +132,9 @@ function ClaimTable({ backgroundColor }) {
       <tbody>
         {/* row 1 */}
 
-        {users.map((user, index) => {
-          const {id,name,company,email,image,contact,status}=user
+        {clients && clients.map((user, index) => {
+          const {id,username,company,image,contact}=user
+          
           return (
             <tr key={id}>
               <th>
@@ -98,19 +150,24 @@ function ClaimTable({ backgroundColor }) {
                     </div>
                   </div>
                   <div>
-                    <div className="font-bold text-white">{name}</div>
+                    <div className="font-bold text-white">{username}</div>
                     <div className="text-sm text-black">{company}</div>
                   </div>
                 </div>
               </td>
               <td className="font-bold text-white">
-                {email}
+                {getClaimById(id)?.content}
               </td>
 
               <td className="font-bold text-white">{contact}</td>
 
               <th >
-              <span onClick={()=>alert(id)} className={`badge w-[100px] h-[30px] cursor-pointer ${status==="pending"?"text-yellow-400":"text-green-400"} `}><span className={`pr-1 ${status==="pending"?"text-yellow-400":"text-green-400"} `}><FaCircle /></span> {status}</span>
+                <span onClick={()=>alert(getClaimById(id)?.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${getClaimById(id)?.status==="pending"?"text-yellow-400":"text-green-400"} `}>
+                  <span className={`pr-1 ${getClaimById(id)?.status==="pending"?"text-yellow-400":"text-green-400"} `}>
+                    <FaCircle />
+                  </span>
+                  {getClaimById(id)?.status}
+                </span>
 
               </th>
             </tr>
