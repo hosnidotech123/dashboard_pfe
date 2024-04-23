@@ -1,34 +1,39 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
-function Pagination({setTab,items}) {
+function Pagination({ currentPage, setCurrentPage,totalPages }) {
 
-    let [num,setNum]=useState(1)
 
-    let [curr,setCurr]=useState(1)
+  let pages = []
 
-    const pages=[...items]
 
-    const handleCurrentPage=(pg)=>{
-        setCurr(pg)
-        console.log(pg)
-        setTab(pg)
-    }
+  for (let i = 1; i <= totalPages; i++) {
+    pages.push(i)
+  }
+
+
+ 
+
+  
+
+
+
   return (
     <div >
-        <ol  className="flex justify-center gap-1 text-xs font-medium">
-                 
-                {pages.map((pg,i)=>{return(
-                    <li key={i}>
-                    <button
-                    onClick={()=>handleCurrentPage(pg.id)}
-                    to={`${pg.id}`}
-                    className={`flex  justify-center items-center size-10 rounded text-[18px]   font-bold border border-blue-600     ${curr===pg.id?'text-white bg-blue-400':' bg-white text-blue-900'} `}
-                    >
-                    {pg.id}
-                    </button>
-                </li>
-                )})}
-        </ol>
+      <ol className="flex justify-center gap-1 text-xs font-medium">
+        {pages.map((pg, index) => {
+          return (
+            <li key={index}>
+              <button
+                onClick={() => setCurrentPage(pg)}
+                
+                className={`flex  justify-center items-center size-10 rounded text-[18px]   font-bold border border-blue-600     ${currentPage === pg ? 'text-white bg-blue-400' : ' bg-white text-blue-900'} `}
+              >
+                {pg}
+              </button>
+            </li>
+          )
+        })}
+      </ol>
 
     </div>
   )

@@ -7,13 +7,11 @@ import { Claim } from '../model/Claim.model';
 
 
 
-function ClaimTable({ backgroundColor }) {
+function ClaimTable({ backgroundColor,claims,clients,currentPage }) {
 
   const navigate=useNavigate()
 
-  const [clients,setClients]=useState<Client[]>([])
 
-  const [claims,setClaims]=useState<Claim[]>([])
 
   const users = [
     {
@@ -68,54 +66,32 @@ function ClaimTable({ backgroundColor }) {
     },
   ]
 
-   const getClients=()=>{
-    axios.get("http://localhost:3000/clients")
-         .then((response)=>{
-          setClients(response.data)
-          
-          
-         })
-         .catch((err)=>{
-          console.log(err)
-         }
-        )
-   }
+  let [claimsItems,setClaimsItems]=useState<Claim[]>([])
 
-   const getClaims=()=>{
-    axios.get(`http://localhost:3000/claims`)
-    .then((response)=>{
-     setClaims(response.data)
-     
-    })
-    .catch((err)=>{
-     console.log(err)
-    }
-   )
-
-   }
 
 
    function getClaimById(id:number):Claim|undefined{
-      return claims.find(item=>item.id===id)
+      return claimsItems.find(item=>item.id===id)
    }
+
+
+
+
+
+  
 
 
 
    
 
-  useEffect(()=>{
-    getClients()
-  
-    getClaims()
-    
-
-  },[])
+ 
 
 
   return (
-
+      
     <table className={`table  ${backgroundColor}`}>
       {/* head */}
+      
       <thead>
         <tr >
           <th>

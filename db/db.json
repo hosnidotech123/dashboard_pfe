@@ -49,42 +49,29 @@
       "image": "https://daisyui.com/tailwind-css-component-profile-2@56w.png"
     }
   ],
-  "claims": [
-    {
-      "id": "1",
-      "content": "server doesnt work",
-      "clientId": "1",
-      "status": "pending"
-    },
-    {
-      "id": "2",
-      "content": "need more servers",
-      "clientId": "2",
-      "status": "done"
-    },
-    {
-      "id": "3",
-      "content": "client app crashes frequently",
-      "clientId": "3",
-      "status": "done"
-    },
-    {
-      "id": "4",
-      "content": "database connection error",
-      "clientId": "4",
-      "status": "pending"
-    },
-    {
-      "id": "5",
-      "content": "network latency issues",
-      "clientId": "5",
-      "status": "pending"
-    },
-    {
-      "id": "6",
-      "content": "update UI design",
-      "clientId": "6",
-      "status": "done"
-    }
-  ]
+  
+    "claims": [
+      { "id": "1", "content": "server doesnt work", "clientId": "1", "status": "pending" },
+      { "id": "2", "content": "need more servers", "clientId": "2", "status": "done" },
+      { "id": "3", "content": "client app crashes frequently", "clientId": "3", "status": "done" },
+      { "id": "4", "content": "database connection error", "clientId": "4", "status": "pending" },
+      { "id": "5", "content": "network latency issues", "clientId": "5", "status": "pending" },
+      { "id": "6", "content": "update UI design", "clientId": "6", "status": "done" },
+
+      { "id": "7", "content": "API endpoint not working", "clientId": "1", "status": "pending" },
+      { "id": "8", "content": "missing authentication feature", "clientId": "2", "status": "pending" },
+      { "id": "9", "content": "frontend not responsive", "clientId": "3", "status": "pending" },
+      { "id": "10", "content": "slow database queries", "clientId": "4", "status": "pending" },
+      { "id": "11", "content": "security vulnerability found", "clientId": "5", "status": "pending" },
+      { "id": "12", "content": "outdated software version", "clientId": "6", "status": "done" },
+
+      { "id": "13", "content": "payment gateway integration issue", "clientId": "1", "status": "done" },
+      { "id": "14", "content": "missing error handling", "clientId": "2", "status": "done" },
+      { "id": "15", "content": "data synchronization problem", "clientId": "3", "status": "done" },
+      { "id": "16",  "content": "expired SSL certificate", "clientId": "4", "status": "pending" },
+      { "id": "17", "content": "broken links on website", "clientId": "5", "status": "done" },
+      { "id": "18", "content": "backend server timeout", "clientId": "6", "status": "done" }
+    ]
+  
+  
 }
