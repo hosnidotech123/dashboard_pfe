@@ -6,6 +6,7 @@ import { IoNotificationsSharp } from "react-icons/io5";
 import { IoHelpCircleSharp } from "react-icons/io5";
 import { TiWarning } from "react-icons/ti";
 
+import { FaChartLine } from "react-icons/fa";
 
 
 
@@ -82,8 +83,8 @@ export default function Sidebar() {
           </li>  
 
           <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/faq')}  className='text-white text-[20px] font-bold w-[100%]'>
-            <IoHelpCircleSharp style={{margin:"5px"}} />
-              FAQ
+            <FaChartLine  style={{margin:"5px"}} />
+              Statistics
               </button>
           </li>
       </ul>

@@ -1,19 +1,14 @@
 import axios from 'axios'
 import React, { useState,useEffect } from 'react'
 
-function Table({backgroundColor}) {
+function Table() {
 
 
 
   const [users,setUsers]=useState()
 
   const getUsers=()=>{
-    axios.get("http://localhost:3000/clients")
-    .then((response)=>{
-      setUsers(response.data)
-    }).catch((err)=>{
-      console.log(err)
-    })
+    
   }
 
    useEffect(()=>{
@@ -28,7 +23,7 @@ function Table({backgroundColor}) {
   return (
     
     
-      <table  className={`table  ${backgroundColor}`}>
+      <table  className={`table  bg-gradient-to-r  from-myskyblue to-blue-700`}>
             {/* head */}
             <thead>
               <tr>
@@ -58,7 +53,7 @@ function Table({backgroundColor}) {
                   <div className="flex items-center gap-3">
                     <div className="avatar">
                       <div className="mask mask-squircle w-12 h-12">
-                        <img src="https://daisyui.com/tailwind-css-component-profile-2@56w.png" alt="Avatar Tailwind CSS Component" />
+                        <img src={user.image}  alt="Avatar Tailwind CSS Component" />
                       </div>
                     </div>
                     <div>
@@ -72,7 +67,7 @@ function Table({backgroundColor}) {
                 </td>
                 <td className="font-bold text-white">{user.contact}</td>
                 <th>
-                <button onClick={()=>alert("id_1")} class="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                <button onClick={()=>alert("id_1")} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
                     details</button>                
                 </th>
               </tr>

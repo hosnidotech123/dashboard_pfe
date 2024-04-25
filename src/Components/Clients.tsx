@@ -4,22 +4,21 @@ import Pagination from './Pagination'
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { Claim } from "../model/Claim.model"
+
 import { Client } from "../model/Client.model"
 
-
-import { FaCircle } from "react-icons/fa";
-
+import Table from "./Table"
 
 
-function Claims() {
+
+function Clients() {
 
 
 
 
   let [clients, setClients] = useState<Client[]>([])
 
-  let [claims, setClaims] = useState<Claim[]>([])
+
 
 
 
@@ -45,27 +44,13 @@ function Claims() {
       )
   }
 
-  function getClaims(): void {
-    axios.get(`http://localhost:3000/claims`)
-      .then((response) => {
-        setClaims(response.data)
-        // setTotalPages(Math.ceil(response.data.items / postPerPage))
-
-
-      })
-      .catch((err) => {
-        console.log(err)
-      }
-      )
-
-  }
 
   let lastPostIndex: number = currentPage * postPerPage
   let firstPostIndex: number = lastPostIndex - postPerPage
-  let currentClaims: Claim[] = claims.slice(firstPostIndex, lastPostIndex)
+  let currentClients: Client[] = clients.slice(firstPostIndex, lastPostIndex)
 
 
-  let totalPages: number = Math.ceil(claims.length / postPerPage)
+  let totalPages: number = Math.ceil(clients.length / postPerPage)
 
 
 
@@ -73,7 +58,7 @@ function Claims() {
   useEffect(() => {
     getClients()
 
-    getClaims()
+
 
 
 
@@ -84,7 +69,7 @@ function Claims() {
 
 
 
-  
+
 
 
 
@@ -94,32 +79,30 @@ function Claims() {
     <div className='mt-[16px]'>
 
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
-      
+
       <div className='mt-[40px]'>
         <table className={`table  bg-gradient-to-r  from-myskyblue to-blue-700`}>
           {/* head */}
-
           <thead>
-            <tr >
+            <tr>
               <th>
                 <label>
                   <input type="checkbox" className="checkbox border-solid border-2 border-white " />
                 </label>
               </th>
-              <th className='text-white'>Creator</th>
-              <th className='text-white'>Content</th>
+              <th className='text-white'>Name</th>
+              <th className='text-white'>Email</th>
               <th className='text-white'>Contact</th>
-              <th className='text-white'>Status</th>
+              <th className='text-white'>Details</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-
-            {currentClaims && currentClaims.map((claim, index) => {
-              let { id, username, company, image, contact } = clients.find(client=>client.id===claim.clientId) as Client
-
+            {currentClients && currentClients.map((user, index) => {
               return (
-                <tr key={id}>
+
+
+                <tr key={user.id}>
                   <th>
                     <label>
                       <input type="checkbox" className="checkbox border-solid border-2 border-white " />
@@ -129,33 +112,27 @@ function Claims() {
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={image} alt="Avatar Tailwind CSS Component" />
+                          <img src={user.image} alt="Avatar Tailwind CSS Component" />
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold text-white">{username}</div>
-                        <div className="text-sm text-black">{company}</div>
+                        <div className="font-bold text-white">{user.username}</div>
+                        <div className="text-sm text-black">{user.company}</div>
                       </div>
                     </div>
                   </td>
                   <td className="font-bold text-white">
-                    {currentClaims.find(claim=>claim.clientId===id)?.content}
+                    {user.email}
                   </td>
-
-                  <td className="font-bold text-white">{contact}</td>
-
-                  <th >
-                    <span onClick={() => alert(currentClaims.find(claim=>claim.clientId===id)?.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${currentClaims.find(claim=>claim.clientId===id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
-                      <span className={`pr-1 ${currentClaims.find(claim=>claim.clientId===id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
-                        <FaCircle />
-                      </span>
-                      {currentClaims.find(claim=>claim.clientId===id)?.status}
-                    </span>
-
+                  <td className="font-bold text-white">{user.contact}</td>
+                  <th>
+                    <button onClick={() => alert(user.id)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                      details</button>
                   </th>
                 </tr>
               )
             })}
+
 
 
 
@@ -174,4 +151,4 @@ function Claims() {
   )
 }
 
-export default Claims
+export default Clients
