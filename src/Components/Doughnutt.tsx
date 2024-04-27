@@ -1,8 +1,58 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Doughnut } from 'react-chartjs-2';
+import { Claim } from '../model/Claim.model';
+
+import axios from 'axios';
+import { useAppSelector } from '../features/store';
+
+
+
 
 ChartJS.register(ArcElement, Tooltip, Legend);
+
+
+
+export default function Doughnutt() {
+
+  let [claims, setClaims] = useState<Claim[]>([])
+
+  let done:number=useAppSelector(state=>state.statistics.done)
+  let pending:number=useAppSelector(state=>state.statistics.pending)
+
+
+function getClaims(): void {
+  axios.get(`http://localhost:3000/claims`)
+    .then((response) => {
+      setClaims(response.data)
+      // setTotalPages(Math.ceil(response.data.items / postPerPage))
+
+      
+
+    })
+    .catch((err) => {
+      console.log(err)
+    }
+    )
+
+}
+
+useEffect(()=>{
+    getClaims()
+
+    console.log(done)
+    console.log(pending)
+    
+  
+
+},[])
+
+
+
+
+
+
+
 
 
 const options = {
@@ -18,14 +68,14 @@ const options = {
   },
 };
 
-export const data = {
+const data = {
   labels: [ 'Done', 'Pending'],
   datasets: [
     {
       label: 'Claims',
-      data: [80,20],
+      data: [done,pending],
       backgroundColor: [
-        '#0080ff',
+        '#2be28a',
         'rgb(250 204 21)',
       ],
   
@@ -34,6 +84,10 @@ export const data = {
   ],
 };
 
-export default function Doughnutt() {
+
+
+
+
+
   return <Doughnut data={data} options={options} />;
 }

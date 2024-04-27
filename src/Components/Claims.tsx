@@ -9,6 +9,8 @@ import { Client } from "../model/Client.model"
 
 
 import { FaCircle } from "react-icons/fa";
+import { addDonestatistics, addPendingstatistics } from '../features/statisticsSlice';
+import { useAppDispatch } from '../features/store';
 
 
 
@@ -17,9 +19,34 @@ function Claims() {
 
 
 
-  let [clients, setClients] = useState<Client[]>([])
+  const [clients, setClients] = useState<Client[]>([])
 
-  let [claims, setClaims] = useState<Claim[]>([])
+  const [claims, setClaims] = useState<Claim[]>([])
+
+
+  
+
+  let dispatch=useAppDispatch()
+
+
+
+  let done: number = 0
+  let pending: number = 0
+
+  for (let claim of claims) {
+    if (claim.status === "done") {
+      done = done + 1
+    }
+    else {
+      pending = pending + 1
+    }
+  }
+
+
+  dispatch(addDonestatistics({d:done}))
+  dispatch(addPendingstatistics({p:pending}))
+
+
 
 
 
@@ -49,7 +76,8 @@ function Claims() {
     axios.get(`http://localhost:3000/claims`)
       .then((response) => {
         setClaims(response.data)
-        // setTotalPages(Math.ceil(response.data.items / postPerPage))
+
+
 
 
       })
@@ -59,6 +87,12 @@ function Claims() {
       )
 
   }
+
+
+
+
+
+
 
   let lastPostIndex: number = currentPage * postPerPage
   let firstPostIndex: number = lastPostIndex - postPerPage
@@ -78,13 +112,12 @@ function Claims() {
 
 
 
+
   }, [])
 
 
 
 
-
-  
 
 
 
@@ -92,9 +125,9 @@ function Claims() {
 
   return (
     <div className='mt-[16px]'>
-
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
       
+      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
+
       <div className='mt-[40px]'>
         <table className={`table  bg-gradient-to-r  from-myskyblue to-blue-700`}>
           {/* head */}
@@ -116,7 +149,7 @@ function Claims() {
             {/* row 1 */}
 
             {currentClaims && currentClaims.map((claim, index) => {
-              let { id, username, company, image, contact } = clients.find(client=>client.id===claim.clientId) as Client
+              let { id, username, company, image, contact } = clients.find(client => client.id === claim.clientId) as Client
 
               return (
                 <tr key={id}>
@@ -139,17 +172,17 @@ function Claims() {
                     </div>
                   </td>
                   <td className="font-bold text-white">
-                    {currentClaims.find(claim=>claim.clientId===id)?.content}
+                    {currentClaims.find(claim => claim.clientId === id)?.content}
                   </td>
 
                   <td className="font-bold text-white">{contact}</td>
 
                   <th >
-                    <span onClick={() => alert(currentClaims.find(claim=>claim.clientId===id)?.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${currentClaims.find(claim=>claim.clientId===id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
-                      <span className={`pr-1 ${currentClaims.find(claim=>claim.clientId===id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span onClick={() => alert(currentClaims.find(claim => claim.clientId === id)?.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${currentClaims.find(claim => claim.clientId === id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                      <span className={`pr-1 ${currentClaims.find(claim => claim.clientId === id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
-                      {currentClaims.find(claim=>claim.clientId===id)?.status}
+                      {currentClaims.find(claim => claim.clientId === id)?.status}
                     </span>
 
                   </th>

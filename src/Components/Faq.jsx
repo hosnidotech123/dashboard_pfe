@@ -7,7 +7,11 @@ import PieChart from './PieChart'
 import Doughnutt from "./Doughnutt"
 
 
+
 function Faq() {
+
+  
+
   return (
     <div   className='w-[100%] h-[100%] flex flex-col' >
       <div  className='h-[50%] flex flex-row'>
@@ -25,7 +29,7 @@ function Faq() {
              <PieChart/>
           </div>
           <div className='w-[50%]  flex items-center justify-center'>
-            <Doughnutt/>
+            <Doughnutt pending={20} done={80}/>
           </div>
           
       </div>
