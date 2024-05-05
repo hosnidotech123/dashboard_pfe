@@ -1,6 +1,13 @@
 import React from 'react'
+import { useAppSelector } from '../features/store'
 
 function Cards() {
+
+
+
+  let done:number =useAppSelector(state=>state.statistics.done)
+  let pending:number =useAppSelector(state=>state.statistics.pending) 
+
   return (
     <div>
         <div style={{columns: 4}}>
@@ -37,7 +44,7 @@ function Cards() {
                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" className="inline-block w-8 h-8 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
                             </div>
                               <div className="stat-title text-black font-bold">Claims</div>
-                              <div className="stat-value text-black">16</div>
+                              <div className="stat-value text-black">{pending+done}</div>
                               <div className="stat-desc text-black">Jan 1st - Feb 1st</div>
                             </div>
                           </div>

@@ -9,8 +9,8 @@ import { Client } from "../model/Client.model"
 
 
 import { FaCircle } from "react-icons/fa";
-import { addDonestatistics, addPendingstatistics } from '../features/statisticsSlice';
-import { useAppDispatch } from '../features/store';
+// import { addDonestatistics, addPendingstatistics } from '../features/statisticsSlice';
+// import { useAppDispatch } from '../features/store';
 
 
 
@@ -26,25 +26,25 @@ function Claims() {
 
   
 
-  let dispatch=useAppDispatch()
+  // let dispatch=useAppDispatch()
 
 
 
-  let done: number = 0
-  let pending: number = 0
+  // let done: number = 0
+  // let pending: number = 0
 
-  for (let claim of claims) {
-    if (claim.status === "done") {
-      done = done + 1
-    }
-    else {
-      pending = pending + 1
-    }
-  }
+  // for (let claim of claims) {
+  //   if (claim.status === "done") {
+  //     done = done + 1
+  //   }
+  //   else {
+  //     pending = pending + 1
+  //   }
+  // }
 
 
-  dispatch(addDonestatistics({d:done}))
-  dispatch(addPendingstatistics({p:pending}))
+  // dispatch(addDonestatistics({d:done}))
+  // dispatch(addPendingstatistics({p:pending}))
 
 
 
