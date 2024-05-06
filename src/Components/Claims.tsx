@@ -1,8 +1,6 @@
 
 import Pagination from './Pagination'
 
-
-import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { Claim } from "../model/Claim.model"
 import { Client } from "../model/Client.model"
@@ -10,7 +8,8 @@ import { Client } from "../model/Client.model"
 
 import { FaCircle } from "react-icons/fa";
 // import { addDonestatistics, addPendingstatistics } from '../features/statisticsSlice';
-// import { useAppDispatch } from '../features/store';
+import { useAppSelector } from '../features/store';
+
 
 
 
@@ -19,9 +18,12 @@ function Claims() {
 
 
 
-  const [clients, setClients] = useState<Client[]>([])
+  // const [clients, setClients] = useState<Client[]>([])
 
-  const [claims, setClaims] = useState<Claim[]>([])
+  let claims=useAppSelector(state=>state.claim.claims) as Claim[]
+  let clients=useAppSelector(state=>state.client.clients) as Client []
+
+  // const [claims, setClaims] = useState<Claim[]>([])
 
 
   
@@ -59,35 +61,39 @@ function Claims() {
 
 
 
-  function getClients(): void {
-    axios.get("http://localhost:3000/clients")
-      .then((response) => {
-        setClients(response.data)
+  // function getClients(): void {
+  //   axios.get("http://localhost:3000/clients")
+  //     .then((response) => {
+  //       setClients(response.data)
 
 
-      })
-      .catch((err) => {
-        console.log(err)
-      }
-      )
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     }
+  //     )
+  // }
+
+  // function getClaims(): void {
+  //   axios.get(`http://localhost:3000/claims`)
+  //     .then((response) => {
+  //       setClaims(response.data)
+
+
+
+
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     }
+  //     )
+
+  // }
+
+
+  function getClientById(claim:Claim):Client{
+    return clients.find(client => client.id === claim.clientId) as Client
   }
-
-  function getClaims(): void {
-    axios.get(`http://localhost:3000/claims`)
-      .then((response) => {
-        setClaims(response.data)
-
-
-
-
-      })
-      .catch((err) => {
-        console.log(err)
-      }
-      )
-
-  }
-
 
 
 
@@ -104,10 +110,17 @@ function Claims() {
 
 
 
-  useEffect(() => {
-    getClients()
 
-    getClaims()
+
+
+  useEffect(() => {
+    // getClients()
+
+
+    
+
+
+    // getClaims()
 
 
 
@@ -149,10 +162,11 @@ function Claims() {
             {/* row 1 */}
 
             {currentClaims && currentClaims.map((claim, index) => {
-              let { id, username, company, image, contact } = clients.find(client => client.id === claim.clientId) as Client
+              let client = getClientById(claim) 
+              
 
               return (
-                <tr key={id}>
+                <tr key={client.id}>
                   <th>
                     <label>
                       <input type="checkbox" className="checkbox border-solid border-2 border-white " />
@@ -162,27 +176,27 @@ function Claims() {
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={image} alt="Avatar Tailwind CSS Component" />
+                          <img src={client.image} alt="Avatar Tailwind CSS Component" />
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold text-white">{username}</div>
-                        <div className="text-sm text-black">{company}</div>
+                        <div className="font-bold text-white">{client.username}</div>
+                        <div className="text-sm text-black">{client.company}</div>
                       </div>
                     </div>
                   </td>
                   <td className="font-bold text-white">
-                    {currentClaims.find(claim => claim.clientId === id)?.content}
+                    {currentClaims.find(claim => claim.clientId === client.id)?.content}
                   </td>
 
-                  <td className="font-bold text-white">{contact}</td>
+                  <td className="font-bold text-white">{client.contact}</td>
 
                   <th >
-                    <span onClick={() => alert(currentClaims.find(claim => claim.clientId === id)?.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${currentClaims.find(claim => claim.clientId === id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
-                      <span className={`pr-1 ${currentClaims.find(claim => claim.clientId === id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span onClick={() => alert(currentClaims.find(claim => claim.clientId === client.id)?.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${currentClaims.find(claim => claim.clientId === client.id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                      <span className={`pr-1 ${currentClaims.find(claim => claim.clientId === client.id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
-                      {currentClaims.find(claim => claim.clientId === id)?.status}
+                      {currentClaims.find(claim => claim.clientId === client.id)?.status}
                     </span>
 
                   </th>

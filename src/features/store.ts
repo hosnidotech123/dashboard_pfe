@@ -22,20 +22,22 @@ import { useDispatch,TypedUseSelectorHook, useSelector } from "react-redux";
 
 import claimReducer from "./claimSlice"
 import statisticsReducer from "./statisticsSlice"
+import clientReducer from "./clientSlice"
 
 
 
 export const store = configureStore({
   reducer: {
     statistics:statisticsReducer,
-    claim:claimReducer
+    claim:claimReducer,
+    client:clientReducer
   },
 })
 
 // Infer the `RootState` and `AppDispatch` types from the store itself
 export type RootState = ReturnType<typeof store.getState>
 // Inferred type: {posts: PostsState, comments: CommentsState, users: UsersState}
-export type AppDispatch = typeof store.dispatch
+// export type AppDispatch = typeof store.dispatch
 
 
 

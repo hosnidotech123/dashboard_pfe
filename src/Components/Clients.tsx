@@ -8,6 +8,7 @@ import React, { useEffect, useState } from 'react'
 import { Client } from "../model/Client.model"
 
 import Table from "./Table"
+import { useAppSelector } from '../features/store';
 
 
 
@@ -16,7 +17,10 @@ function Clients() {
 
 
 
-  let [clients, setClients] = useState<Client[]>([])
+  // let [clients, setClients] = useState<Client[]>([])
+
+  let clients=useAppSelector(state=>state.client.clients) as Client[]
+
 
 
 
@@ -31,18 +35,18 @@ function Clients() {
 
 
 
-  function getClients(): void {
-    axios.get("http://localhost:3000/clients")
-      .then((response) => {
-        setClients(response.data)
+  // function getClients(): void {
+  //   axios.get("http://localhost:3000/clients")
+  //     .then((response) => {
+  //       setClients(response.data)
 
 
-      })
-      .catch((err) => {
-        console.log(err)
-      }
-      )
-  }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     }
+  //     )
+  // }
 
 
   let lastPostIndex: number = currentPage * postPerPage
@@ -56,7 +60,8 @@ function Clients() {
 
 
   useEffect(() => {
-    getClients()
+    // getClients()
+
 
 
 

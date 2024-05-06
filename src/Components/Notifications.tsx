@@ -6,6 +6,8 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
 import { Client } from "../model/Client.model"
+import { useAppSelector } from '../features/store';
+
 
 
 
@@ -15,7 +17,9 @@ function Notification() {
 
 
 
-  let [clients, setClients] = useState<Client[]>([])
+  // let [clients, setClients] = useState<Client[]>([])
+
+  let clients=useAppSelector(state=>state.client.clients) as Client[]
 
 
 
@@ -30,18 +34,18 @@ function Notification() {
 
 
 
-  function getClients(): void {
-    axios.get("http://localhost:3000/clients")
-      .then((response) => {
-        setClients(response.data)
+  // function getClients(): void {
+  //   axios.get("http://localhost:3000/clients")
+  //     .then((response) => {
+  //       setClients(response.data)
 
 
-      })
-      .catch((err) => {
-        console.log(err)
-      }
-      )
-  }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     }
+  //     )
+  // }
 
 
   let lastPostIndex: number = currentPage * postPerPage
@@ -55,7 +59,7 @@ function Notification() {
 
 
   useEffect(() => {
-    getClients()
+    // getClients()
 
 
 

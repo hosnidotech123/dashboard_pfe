@@ -6,11 +6,13 @@ import "./App.css"
 import Main from './Components/Main'
 
 import { addDonestatistics, addPendingstatistics } from './features/statisticsSlice';
-import { useAppDispatch } from './features/store';
+import { useAppDispatch, useAppSelector } from './features/store';
 
 import {Claim} from "./model/Claim.model"
 
 import axios from 'axios';
+import { getClaims } from './features/claimSlice';
+import { getClients } from './features/clientSlice';
 
 
 
@@ -18,8 +20,12 @@ import axios from 'axios';
 
 function App() {
 
-  const [claims, setClaims] = useState<Claim[]>([])
+  // const [claims, setClaims] = useState<Claim[]>([])
 
+  // let dispatch=useAppDispatch()
+
+
+  let claims=useAppSelector(state=>state.claim.claims) as Claim[]
   let dispatch=useAppDispatch()
 
 
@@ -42,29 +48,35 @@ function App() {
 
 
 
-  function getClaims(): void {
-    axios.get(`http://localhost:3000/claims`)
-      .then((response) => {
-        setClaims(response.data)
+  // function getClaims(): void {
+  //   axios.get(`http://localhost:3000/claims`)
+  //     .then((response) => {
+  //       setClaims(response.data)
 
 
 
 
-      })
-      .catch((err) => {
-        console.log(err)
-      }
-      )
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     }
+  //     )
 
-  }
+  // }
+
+  
 
 
   useEffect(() => {
     
 
-    getClaims()
+    // getClaims()
+    dispatch(getClaims())
+    dispatch(getClients())
+    
+    
 
-
+  
 
 
 

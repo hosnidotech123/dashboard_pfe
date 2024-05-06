@@ -34,7 +34,7 @@ export const claimSlice = createSlice({
       state.isLoading = true;
       
     })
-      .addCase(getClaims.fulfilled, (state, action) => {
+      .addCase(getClaims.fulfilled, (state, action:PayloadAction<Claim[]>) => {
         state.claims = action.payload ;
         state.isLoading = false;
         state.hasError = null

@@ -16,18 +16,6 @@ function Faq() {
   let done:number =useAppSelector(state=>state.statistics.done)
   let pending:number =useAppSelector(state=>state.statistics.pending)
 
-  let disptach=useAppDispatch()
-
-  let claims=useAppSelector(state=>state.claim.claims)
-
-
-
-  useEffect(()=>{
-
-    console.log(claims)
-    disptach(getClaims())
-
-  },[])
 
 
 
