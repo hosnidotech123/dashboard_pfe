@@ -7,6 +7,7 @@ import Claims from './Claims'
 import Statistics from './Statistics'
 import { TbLogout } from "react-icons/tb";
 import { useAppSelector } from '../features/store'
+import ClientDetails from './ClientDetails'
 
 
 
@@ -51,6 +52,7 @@ function Main() {
                 <Route path='/notifications' element={<Notifications/>}/>
                 <Route path='/claims' element={<Claims/>}/>
                 <Route path='/statistics' element={<Statistics/>}/>
+                <Route path='/clients/:customerId' element={<ClientDetails/>} />
               </Routes>
             
               </div>

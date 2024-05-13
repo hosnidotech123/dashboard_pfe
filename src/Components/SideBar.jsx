@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link ,useNavigate} from 'react-router-dom'
 import { IoHomeSharp } from "react-icons/io5";
 import { IoPeopleSharp } from "react-icons/io5";
@@ -14,6 +14,13 @@ import { FaChartLine } from "react-icons/fa";
 export default function Sidebar() {
 
   const navigate=useNavigate()
+
+   let currentpage=window.location.pathname
+
+
+  useEffect(()=>{
+      // console.log(currentpage)
+  },[currentpage])
 
   return (
     <div className="sidebar">
@@ -59,30 +66,30 @@ export default function Sidebar() {
       </div>
       <hr style={{ margin: '30px 0px' }} />
       <ul>
-          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/')}  className={`${currentpage==="/"?"text-pink-300":"text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoHomeSharp style={{margin:"5px"}} />
             Home
             </button>
           </li>
 
-          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/clients')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/clients')}  className={`${currentpage==="/clients"?"text-pink-300":"text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoPeopleSharp style={{margin:"5px"}} />
             Clients
             </button>
           </li>
 
-          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/claims')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/claims')}  className={`${currentpage==="/claims"?"text-pink-300":"text-white"} text-[20px]   font-bold w-[100%]`}>
             <TiWarning style={{margin:"5px"}} />
               Claims
               </button>
          </li>
-          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/notifications')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/notifications')}  className={`${currentpage==="/notifications"?"text-pink-300":"text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoNotificationsSharp style={{margin:"5px"}} />
             Notifications
             </button>
           </li>  
 
-          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/statistics')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/statistics')}  className={`${currentpage==="/statistics"?"text-pink-300":"text-white"} text-[20px]   font-bold w-[100%]`}>
             <FaChartLine  style={{margin:"5px"}} />
               Statistics
               </button>
