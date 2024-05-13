@@ -82,7 +82,7 @@ export default function Sidebar() {
             </button>
           </li>  
 
-          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/faq')}  className='text-white text-[20px] font-bold w-[100%]'>
+          <li><button style={{display:"flex",alignItems:"center",marginLeft:"10px"}} onClick={()=>navigate('/statistics')}  className='text-white text-[20px] font-bold w-[100%]'>
             <FaChartLine  style={{margin:"5px"}} />
               Statistics
               </button>

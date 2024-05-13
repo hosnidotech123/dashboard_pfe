@@ -10,9 +10,11 @@ interface ClaimState {
   hasError:String|null
 }
 
+let url:string="http://localhost:8888/CLAIM-SERVICE/claims"
+
 export let getClaims = createAsyncThunk(
   "claim", async () => {
-   return fetch("http://localhost:3000/claims")
+   return fetch(url)
               .then(res=>res.json())
     
 });

@@ -1,33 +1,37 @@
 import React, { useEffect, useState } from 'react'
-import { Client } from "../model/Client.model"
+import { Customer } from "../model/Customer.model"
 import axios from 'axios';
+import { useAppSelector } from '../features/store';
 
 
 function SmallTable() {
 
-  let [clients, setClients] = useState<Client[]>([])
+  // let [clients, setClients] = useState<Client[]>([])
 
 
-  function getClients(): void {
-    axios.get("http://localhost:3000/clients")
-      .then((response) => {
-        setClients(response.data)
+  // function getClients(): void {
+  //   axios.get("http://localhost:3000/clients")
+  //     .then((response) => {
+  //       setClients(response.data)
         
 
 
-      })
-      .catch((err) => {
-        console.log(err)
-      }
-      )
-  }
+  //     })
+  //     .catch((err) => {
+  //       console.log(err)
+  //     }
+  //     )
+  // }
 
+  let customers=useAppSelector(state=>state.customer.customers) as Customer []
+
+  
   useEffect(()=>{
-      getClients()
+      // getClients()
   },[])
 
 
-  let latestClients: Client[] = clients.slice(-4)
+  let latestCustomers: Customer[] = customers.slice(-4)
 
 
 
@@ -48,7 +52,7 @@ function SmallTable() {
           <tbody >
             {/* row 1 */}
 
-            {latestClients.map(client => {
+            {latestCustomers.map(client => {
               return (
                 <tr key={client.id}>
 

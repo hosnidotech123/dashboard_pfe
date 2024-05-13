@@ -22,7 +22,7 @@ import { useDispatch,TypedUseSelectorHook, useSelector } from "react-redux";
 
 import claimReducer from "./claimSlice"
 import statisticsReducer from "./statisticsSlice"
-import clientReducer from "./clientSlice"
+import customerReducer from "./customerSlice"
 
 
 
@@ -30,7 +30,7 @@ export const store = configureStore({
   reducer: {
     statistics:statisticsReducer,
     claim:claimReducer,
-    client:clientReducer
+    customer:customerReducer
   },
 })
 

@@ -12,7 +12,7 @@ import {Claim} from "./model/Claim.model"
 
 import axios from 'axios';
 import { getClaims } from './features/claimSlice';
-import { getClients } from './features/clientSlice';
+import { getCustomers } from './features/customerSlice';
 
 
 
@@ -34,7 +34,7 @@ function App() {
   let pending: number = 0
 
   for (let claim of claims) {
-    if (claim.status === "done") {
+    if (claim.status.toLowerCase() === "done") {
       done = done + 1
     }
     else {
@@ -72,7 +72,7 @@ function App() {
 
     // getClaims()
     dispatch(getClaims())
-    dispatch(getClients())
+    dispatch(getCustomers())
     
     
 

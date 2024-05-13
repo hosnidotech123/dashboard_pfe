@@ -5,7 +5,7 @@ import Pagination from './Pagination'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 
-import { Client } from "../model/Client.model"
+import { Customer } from "../model/Customer.model"
 import { useAppSelector } from '../features/store';
 
 
@@ -19,7 +19,7 @@ function Notification() {
 
   // let [clients, setClients] = useState<Client[]>([])
 
-  let clients=useAppSelector(state=>state.client.clients) as Client[]
+  let customers=useAppSelector(state=>state.customer.customers) as Customer[]
 
 
 
@@ -50,10 +50,10 @@ function Notification() {
 
   let lastPostIndex: number = currentPage * postPerPage
   let firstPostIndex: number = lastPostIndex - postPerPage
-  let currentClients: Client[] = clients.slice(firstPostIndex, lastPostIndex)
+  let currentCustomers: Customer[] = customers.slice(firstPostIndex, lastPostIndex)
 
 
-  let totalPages: number = Math.ceil(clients.length / postPerPage)
+  let totalPages: number = Math.ceil(customers.length / postPerPage)
 
 
 
@@ -101,7 +101,7 @@ function Notification() {
           </thead>
           <tbody>
             {/* row 1 */}
-            {currentClients && currentClients.map((user, index) => {
+            {currentCustomers && currentCustomers.map((user, index) => {
               return (
 
 

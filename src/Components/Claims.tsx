@@ -1,9 +1,9 @@
 
 import Pagination from './Pagination'
 
-import React, { useEffect, useState } from 'react'
+import React, {useState } from 'react'
 import { Claim } from "../model/Claim.model"
-import { Client } from "../model/Client.model"
+import { Customer } from "../model/Customer.model"
 
 
 import { FaCircle } from "react-icons/fa";
@@ -18,10 +18,10 @@ function Claims() {
 
 
 
-  // const [clients, setClients] = useState<Client[]>([])
+  // const [customers, setClients] = useState<Client[]>([])
 
   let claims=useAppSelector(state=>state.claim.claims) as Claim[]
-  let clients=useAppSelector(state=>state.client.clients) as Client []
+  // let clients=useAppSelector(state=>state.client.clients) as Client []
 
   // const [claims, setClaims] = useState<Claim[]>([])
 
@@ -91,9 +91,9 @@ function Claims() {
   // }
 
 
-  function getClientById(claim:Claim):Client{
-    return clients.find(client => client.id === claim.clientId) as Client
-  }
+  // function getClientById(claim:Claim):Client{
+  //   return clients.find(client => client.id === claim.clientId) as Client
+  // }
 
 
 
@@ -111,22 +111,6 @@ function Claims() {
 
 
 
-
-
-  useEffect(() => {
-    // getClients()
-
-
-    
-
-
-    // getClaims()
-
-
-
-
-
-  }, [])
 
 
 
@@ -162,11 +146,11 @@ function Claims() {
             {/* row 1 */}
 
             {currentClaims && currentClaims.map((claim, index) => {
-              let client = getClientById(claim) 
-              
+              // let client = getClientById(claim) as Client
+              let customer=claim.customer
 
               return (
-                <tr key={client.id}>
+                <tr key={customer?.id}>
                   <th>
                     <label>
                       <input type="checkbox" className="checkbox border-solid border-2 border-white " />
@@ -176,27 +160,27 @@ function Claims() {
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={client.image} alt="Avatar Tailwind CSS Component" />
+                          <img src={customer?.image} alt="Avatar Tailwind CSS Component" />
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold text-white">{client.username}</div>
-                        <div className="text-sm text-black">{client.company}</div>
+                        <div className="font-bold text-white">{customer?.username}</div>
+                        <div className="text-sm text-black">{customer?.company}</div>
                       </div>
                     </div>
                   </td>
                   <td className="font-bold text-white">
-                    {currentClaims.find(claim => claim.clientId === client.id)?.content}
+                    {claim.content}
                   </td>
 
-                  <td className="font-bold text-white">{client.contact}</td>
+                  <td className="font-bold text-white">{customer?.contact}</td>
 
                   <th >
-                    <span onClick={() => alert(currentClaims.find(claim => claim.clientId === client.id)?.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${currentClaims.find(claim => claim.clientId === client.id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
-                      <span className={`pr-1 ${currentClaims.find(claim => claim.clientId === client.id)?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span onClick={() => alert(claim.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                      <span className={`pr-1 ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
-                      {currentClaims.find(claim => claim.clientId === client.id)?.status}
+                      {claim.status}
                     </span>
 
                   </th>
