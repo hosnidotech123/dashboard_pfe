@@ -2,7 +2,7 @@ import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { FaCircle } from "react-icons/fa";
 import { useNavigate } from 'react-router-dom';
-import { Client } from '../model/Client.model';
+import { Customer } from '../model/Customer.model';
 import { Claim } from '../model/Claim.model';
 
 

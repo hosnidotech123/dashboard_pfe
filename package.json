@@ -9,6 +9,8 @@
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview"
   },
+  "proxy": "http://localhost:8888"
+  ,
   "dependencies": {
     "@faker-js/faker": "^8.4.1",
     "@reduxjs/toolkit": "^2.2.3",

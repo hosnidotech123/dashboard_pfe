@@ -80,7 +80,7 @@ function App() {
 
 
 
-  }, [])
+  }, [claims])
 
   return (
     <div className='App'>

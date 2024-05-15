@@ -66,12 +66,12 @@ function Clients() {
           {/* head */}
           <thead>
             <tr>
-              <th>
+              {/* <th>
                 <label>
                   <input type="checkbox" className="checkbox border-solid border-2 border-white " />
                 </label>
-              </th>
-              <th className='text-white'>Name</th>
+              </th> */}
+              <th className='text-white px-[20px]' >Name</th>
               <th className='text-white'>Email</th>
               <th className='text-white'>Contact</th>
               <th className='text-white'>Details</th>
@@ -84,12 +84,12 @@ function Clients() {
 
 
                 <tr key={user.id}>
-                  <th>
+                  {/* <th>
                     <label>
                       <input type="checkbox" className="checkbox border-solid border-2 border-white " />
                     </label>
-                  </th>
-                  <td>
+                  </th> */}
+                  <td className='px-[20px]'>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">

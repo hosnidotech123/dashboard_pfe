@@ -1,7 +1,7 @@
 
 import Pagination from './Pagination'
 
-import React, {useState } from 'react'
+import React, { useState } from 'react'
 import { Claim } from "../model/Claim.model"
 import { Customer } from "../model/Customer.model"
 
@@ -9,6 +9,7 @@ import { Customer } from "../model/Customer.model"
 import { FaCircle } from "react-icons/fa";
 // import { addDonestatistics, addPendingstatistics } from '../features/statisticsSlice';
 import { useAppSelector } from '../features/store';
+import axios from 'axios';
 
 
 
@@ -108,6 +109,22 @@ function Claims() {
   let totalPages: number = Math.ceil(claims.length / postPerPage)
 
 
+  const updateClaimState = (id: number, newStatus: string) => {
+    const confirmationMessage = `Êtes-vous sûr que le problème est résolu ?`;
+
+    if (window.confirm(confirmationMessage)) {
+        newStatus = newStatus === "pending" ? "done" : "pending";
+
+        axios.patch(`http://localhost:8082/claims/${id}`, { "status": newStatus })
+            .then(response => {
+                console.log("Claim status updated successfully:", response.data);
+                // Optionally, you can handle the updated claim data here
+            })
+            .catch(err => {
+                console.error("Error updating claim status:", err);
+            });
+    }
+};
 
 
 
@@ -131,12 +148,7 @@ function Claims() {
 
           <thead>
             <tr >
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox border-solid border-2 border-white " />
-                </label>
-              </th>
-              <th className='text-white'>Creator</th>
+              <th className='text-white px-[20px]'>Creator</th>
               <th className='text-white'>Content</th>
               <th className='text-white'>Contact</th>
               <th className='text-white'>Status</th>
@@ -151,12 +163,7 @@ function Claims() {
 
               return (
                 <tr key={customer?.id}>
-                  <th>
-                    <label>
-                      <input type="checkbox" className="checkbox border-solid border-2 border-white " />
-                    </label>
-                  </th>
-                  <td>
+                  <td className='px-[20px]'>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
@@ -176,11 +183,11 @@ function Claims() {
                   <td className="font-bold text-white">{customer?.contact}</td>
 
                   <th >
-                    <span onClick={() => alert(claim.id)} className={`badge w-[100px] h-[30px] cursor-pointer ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span onClick={() => updateClaimState(claim.id,claim.status)} className={`badge w-[100px] h-[30px] cursor-pointer ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                       <span className={`pr-1 ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
-                      {claim.status}
+                      {claim.status.toLowerCase()}
                     </span>
 
                   </th>

@@ -2,9 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { Customer } from "../model/Customer.model"
 import axios from 'axios';
 import { useAppSelector } from '../features/store';
+import { useNavigate } from 'react-router-dom';
 
 
 function SmallTable() {
+
+  let navigate=useNavigate()
 
   // let [clients, setClients] = useState<Client[]>([])
 
@@ -74,7 +77,7 @@ function SmallTable() {
                   </td>
                   <td className="font-bold text-white">{client.contact}</td>
                   <th>
-                    <button onClick={() => alert(client.id)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
+                    <button onClick={() => navigate(`clients/${client.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                       details</button>
                   </th>
                 </tr>
