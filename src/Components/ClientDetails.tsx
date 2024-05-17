@@ -12,7 +12,16 @@ function ClientDetails() {
 
     let claims=useAppSelector(state=>state.claim.claims)
 
-     let claimsperClient=claims?.filter(claim=>claim.customer.id===parseInt(customerId||""))
+    let claimsperClient=claims?.filter(claim=>claim.customer.id===parseInt(customerId||""))
+
+    let notifications=useAppSelector(state=>state.notification.notifications)
+
+    let notificationsperClient=notifications?.filter(n=>n.customerId===parseInt(customerId||""))
+
+
+   
+
+
 
 
 
@@ -56,6 +65,11 @@ function ClientDetails() {
                 <div className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                     <dt className="font-medium text-gray-900">Claims</dt>
                     <dd className="text-gray-700 sm:col-span-2">{claimsperClient?.length}</dd>
+                </div>
+
+                <div className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt className="font-medium text-gray-900">Notifications</dt>
+                    <dd className="text-gray-700 sm:col-span-2">{notificationsperClient?.length}</dd>
                 </div>
                 
             </dl>

@@ -23,14 +23,17 @@ import { useDispatch,TypedUseSelectorHook, useSelector } from "react-redux";
 import claimReducer from "./claimSlice"
 import statisticsReducer from "./statisticsSlice"
 import customerReducer from "./customerSlice"
-
+import UserReducer from "./UserSlice"
+import NotificationReducer from "./notificationSlice"
 
 
 export const store = configureStore({
   reducer: {
     statistics:statisticsReducer,
     claim:claimReducer,
-    customer:customerReducer
+    customer:customerReducer,
+    user:UserReducer,
+    notification:NotificationReducer
   },
 })
 

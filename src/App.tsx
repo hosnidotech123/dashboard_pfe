@@ -13,6 +13,7 @@ import {Claim} from "./model/Claim.model"
 import axios from 'axios';
 import { getClaims } from './features/claimSlice';
 import { getCustomers } from './features/customerSlice';
+import { getNotifications } from './features/notificationSlice';
 
 
 
@@ -73,6 +74,7 @@ function App() {
     // getClaims()
     dispatch(getClaims())
     dispatch(getCustomers())
+    dispatch(getNotifications())
     
     
 

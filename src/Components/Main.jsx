@@ -9,6 +9,7 @@ import { TbLogout } from "react-icons/tb";
 import { useAppSelector } from '../features/store'
 import ClientDetails from './ClientDetails'
 import SendClaim from './SendClaim'
+import SendNotification from './SendNotification'
 
 
 
@@ -17,6 +18,8 @@ function Main() {
   const navigate=useNavigate()
 
   let claims=useAppSelector(state=>state.claim.claims)
+
+  let user=useAppSelector(state=>state.user.user)
 
   const  handleLogOut=()=>{
     alert("Log Out")
@@ -39,7 +42,7 @@ function Main() {
                           <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                         </div>
                     </div>
-                    <h2 className='mx-2 text-black font-bold'>Hello, Admin !</h2>
+                    <h2 className='mx-2 text-black font-bold'>hello, {user.username} !</h2>
                     <TbLogout onClick={handleLogOut} className='w-[30px] ml-2 h-[30px] cursor-pointer text-black' />
 
                       
@@ -56,6 +59,7 @@ function Main() {
                 <Route path='/statistics' element={<Statistics/>}/>
                 <Route path='/clients/:customerId' element={<ClientDetails/>} />
                 <Route path='/sendclaim' element={<SendClaim/>}/>
+                <Route path='/notifications/:customerId' element={<SendNotification/>}/>
               </Routes>
             
               </div>

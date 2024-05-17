@@ -30,8 +30,8 @@ function SendClaim() {
     return (
         <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-lg text-center">
-                <h1 className="text-2xl font-bold text-black sm:text-3xl">Get started today!</h1>
-                <p className='text-red-700 font-bold py-1'>
+                <h1 className="text-2xl font-bold text-blue-500 sm:text-3xl">Get started today!</h1>
+                <p className='text-gray-400  font-bold py-1'>
                     Nous nous engageons à traiter votre réclamation rapidement et à vous tenir informé de sa résolution.
                     Merci pour votre contribution à l'amélioration de notre service !
                 </p>

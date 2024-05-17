@@ -7,6 +7,7 @@ import React, { useEffect, useState } from 'react'
 
 import { Customer } from "../model/Customer.model"
 import { useAppSelector } from '../features/store';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -72,7 +73,7 @@ function Notification() {
 
 
 
-
+ let navigate=useNavigate()
 
 
 
@@ -129,7 +130,7 @@ function Notification() {
                   </td>
                   <td className="font-bold text-white">{user.contact}</td>
                   <th>
-                    <button onClick={() => alert(user.id)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
+                    <button onClick={() => navigate(`${user.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
                       Send</button>
                   </th>
                 </tr>
