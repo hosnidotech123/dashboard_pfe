@@ -1,12 +1,17 @@
 import React, { useState } from 'react';
 import { ClaimRequest } from '../model/ClaimRequest.model';
 import axios from 'axios';
+import { useAppSelector } from '../features/store';
 
 function SendClaim() {
+
+    let user=useAppSelector(state=>state.user.user)
+
+
     let [claimRequest, setClaimRequest] = useState<ClaimRequest>({
         content: "",
         status: "pending",
-        customerId: 0
+        customerId: user?.id as number
     });
 
     const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
@@ -17,7 +22,7 @@ function SendClaim() {
                 setClaimRequest({
                     content: "",
                     status: "pending",
-                    customerId: 0
+                    customerId: user?.id as number
                 })
                 // handle success
             })
@@ -40,9 +45,8 @@ function SendClaim() {
             <form onSubmit={handleForm} className="mx-auto mb-0 mt-8 max-w-md space-y-4">
                 <div>
                     <label htmlFor="content" className="sr-only">Content</label>
-                    <input
+                    <textarea
                         required
-                        type="text"
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
                         placeholder="Set your Claim"
                         value={claimRequest.content}
@@ -50,7 +54,7 @@ function SendClaim() {
                     />
                 </div>
 
-                <div>
+                {/* <div>
                     <label htmlFor="status" className="sr-only">Status</label>
                     <input
                         required
@@ -72,7 +76,7 @@ function SendClaim() {
                         value={claimRequest.customerId}
                         onChange={(e) => setClaimRequest({ ...claimRequest, customerId: parseInt(e.target.value) })}
                     />
-                </div>
+                </div> */}
 
                 <div className="flex items-center justify-between">
                     <button

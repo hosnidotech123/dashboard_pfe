@@ -10,6 +10,7 @@ import { useAppSelector } from '../features/store'
 import ClientDetails from './ClientDetails'
 import SendClaim from './SendClaim'
 import SendNotification from './SendNotification'
+import CustomerNotifications from './CustomerNotifications'
 
 
 
@@ -60,6 +61,7 @@ function Main() {
                 <Route path='/clients/:customerId' element={<ClientDetails/>} />
                 <Route path='/sendclaim' element={<SendClaim/>}/>
                 <Route path='/notifications/:customerId' element={<SendNotification/>}/>
+                <Route path='mynotifications' element={<CustomerNotifications/>}/>
               </Routes>
             
               </div>

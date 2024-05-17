@@ -5,6 +5,7 @@ export interface Notification{
     content:string
     customerId:number
     customer:Customer
+    createdAt:string
     
  }
 

@@ -71,30 +71,30 @@ export default function Sidebar() {
       </div>
       <hr style={{ margin: '30px 0px' }} />
       <ul>
-        <li><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/')} className={`${currentpage === "/" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
+        <li className={`${user.roles.includes("admin")?"":"hidden"}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/')} className={`${currentpage === "/" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoHomeSharp style={{ margin: "5px" }} />
           Home
         </button>
         </li>
 
-        <li><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/clients')} className={`${currentpage === "/clients" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
+        <li className={`${user.roles.includes("admin")?"":"hidden"}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/clients')} className={`${currentpage === "/clients" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoPeopleSharp style={{ margin: "5px" }} />
           Clients
         </button>
         </li>
 
-        <li><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/claims')} className={`${currentpage === "/claims" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
+        <li className={`${user.roles.includes("admin")?"":"hidden"}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/claims')} className={`${currentpage === "/claims" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <TiWarning style={{ margin: "5px" }} />
           Claims
         </button>
         </li>
-        <li><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/notifications')} className={`${currentpage === "/notifications" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
+        <li className={`${user.roles.includes("admin")?"":"hidden"}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/notifications')} className={`${currentpage === "/notifications" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoNotificationsSharp style={{ margin: "5px" }} />
           Notifications
         </button>
         </li>
 
-        <li><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/statistics')} className={`${currentpage === "/statistics" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
+        <li className={`${user.roles.includes("admin")?"":"hidden"}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/statistics')} className={`${currentpage === "/statistics" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <FaChartLine style={{ margin: "5px" }} />
           Statistics
         </button>
@@ -103,6 +103,12 @@ export default function Sidebar() {
         <li className={`${user.roles.includes("admin")?"hidden":""}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/sendclaim')} className={`${currentpage === "/sendclaim" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <MdOutlineReport style={{ margin: "5px" }} />
           Report
+        </button>
+        </li>
+
+        <li className={`${user.roles.includes("admin")?"hidden":""}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/mynotifications')} className={`${currentpage === "/mynotifications" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
+          <IoNotificationsSharp style={{ margin: "5px" }} />
+          My Notifications 
         </button>
         </li>
 
