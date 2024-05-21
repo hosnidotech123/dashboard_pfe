@@ -68,6 +68,7 @@ function SmallTable() {
                       </div>
                       <div>
                         <div className="font-bold text-white">{client.username}</div>
+                        <div className="text-sm text-black">{client.company}</div>
                       </div>
                     </div>
                   </td>

@@ -4,6 +4,7 @@ import Pagination from './Pagination'
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { IoNotificationsSharp } from "react-icons/io5";
 
 import { Customer } from "../model/Customer.model"
 
@@ -75,6 +76,7 @@ function Clients() {
               <th className='text-white'>Email</th>
               <th className='text-white'>Contact</th>
               <th className='text-white'>Details</th>
+              <th className='text-white flex items-center'><IoNotificationsSharp style={{ margin: "5px" }} /> Notify</th>
             </tr>
           </thead>
           <tbody>
@@ -109,6 +111,10 @@ function Clients() {
                   <th>
                     <button onClick={() => navigate(`${user.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
                       details</button>
+                  </th>
+                  <th>
+                    <button onClick={() => navigate(`notifications/${user.id}`)} className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full">
+                      Send</button>
                   </th>
                 </tr>
               )

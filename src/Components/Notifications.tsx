@@ -4,16 +4,20 @@ import Pagination from './Pagination'
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Notification } from '../model/Notification.model';
 
 import { Customer } from "../model/Customer.model"
 import { useAppSelector } from '../features/store';
 import { useNavigate } from 'react-router-dom';
+import { IoNotificationsSharp } from 'react-icons/io5';
 
 
 
 
 
-function Notification() {
+
+
+function Notifications() {
 
 
 
@@ -48,13 +52,16 @@ function Notification() {
   //     )
   // }
 
-
+  let notifications=useAppSelector(state=>state.notification.notifications) 
+  
   let lastPostIndex: number = currentPage * postPerPage
   let firstPostIndex: number = lastPostIndex - postPerPage
-  let currentCustomers: Customer[] = customers.slice(firstPostIndex, lastPostIndex)
+  let currentNotifications: Notification [] = notifications?.slice(firstPostIndex, lastPostIndex) as unknown as Notification [] 
 
 
-  let totalPages: number = Math.ceil(customers.length / postPerPage)
+  let totalPages: number = Math.ceil((notifications as unknown as Notification []).length / postPerPage)
+
+  
 
 
 
@@ -67,13 +74,13 @@ function Notification() {
 
 
 
-  }, [])
+  }, [notifications,customers])
 
 
 
 
 
- let navigate=useNavigate()
+ 
 
 
 
@@ -89,50 +96,39 @@ function Notification() {
           {/* head */}
           <thead>
             <tr>
-              <th>
-                <label>
-                  <input type="checkbox" className="checkbox border-solid border-2 border-white " />
-                </label>
-              </th>
+             
               <th className='text-white'>Name</th>
               <th className='text-white'>Email</th>
               <th className='text-white'>Contact</th>
-              <th className='text-white'>Action</th>
+              <th className='text-white flex items-center'><IoNotificationsSharp style={{ marginRight: "5px" }} />Notification</th>
             </tr>
           </thead>
           <tbody>
             {/* row 1 */}
-            {currentCustomers && currentCustomers.map((user, index) => {
+            {currentNotifications && currentNotifications.map((notif, index) => {
               return (
 
 
-                <tr key={user.id}>
-                  <th>
-                    <label>
-                      <input type="checkbox" className="checkbox border-solid border-2 border-white " />
-                    </label>
-                  </th>
+                <tr key={notif?.id}>
+                 
                   <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
-                          <img src={user.image} alt="Avatar Tailwind CSS Component" />
+                          <img src={`${customers.find(c=>c.id===notif.customerId)?.image}`} alt="Avatar Tailwind CSS Component" />
                         </div>
                       </div>
                       <div>
-                        <div className="font-bold text-white">{user.username}</div>
-                        <div className="text-sm text-black">{user.company}</div>
+                        <div className="font-bold text-white">{customers.find(c=>c.id===notif.customerId)?.username}</div>
+                        <div className="text-sm text-black">{customers.find(c=>c.id===notif.customerId)?.company}</div>
                       </div>
                     </div>
                   </td>
                   <td className="font-bold text-white">
-                    {user.email}
+                    {customers.find(c=>c.id===notif.customerId)?.email}
                   </td>
-                  <td className="font-bold text-white">{user.contact}</td>
-                  <th>
-                    <button onClick={() => navigate(`${user.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
-                      Send</button>
-                  </th>
+                  <td className="font-bold text-white">{customers.find(c=>c.id===notif.customerId)?.contact}</td>
+                 <td className='text-white font-bold'>{notif.content}</td>
                 </tr>
               )
             })}
@@ -155,4 +151,4 @@ function Notification() {
   )
 }
 
-export default Notification
+export default Notifications

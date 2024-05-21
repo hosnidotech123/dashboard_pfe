@@ -1,7 +1,7 @@
 
 import Pagination from './Pagination'
 
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Claim } from "../model/Claim.model"
 import { Customer } from "../model/Customer.model"
 
@@ -14,42 +14,23 @@ import axios from 'axios';
 
 
 
-function Claims() {
+function CustomerClaims() {
 
-
-
-
-  // const [customers, setClients] = useState<Client[]>([])
 
   let claims=useAppSelector(state=>state.claim.claims) as Claim[]
-  // let clients=useAppSelector(state=>state.client.clients) as Client []
 
-  // const [claims, setClaims] = useState<Claim[]>([])
+  let user=useAppSelector(state=>state.user.user)
 
+  let claimsperClient=claims.filter(c=>c.customerId===user?.id) as Claim[]
+
+
+  // useEffect(()=>{
+  //   console.log(claimsperClient)
+  // },[])
 
   
-
-  // let dispatch=useAppDispatch()
-
-
-
-  // let done: number = 0
-  // let pending: number = 0
-
-  // for (let claim of claims) {
-  //   if (claim.status === "done") {
-  //     done = done + 1
-  //   }
-  //   else {
-  //     pending = pending + 1
-  //   }
-  // }
-
-
-  // dispatch(addDonestatistics({d:done}))
-  // dispatch(addPendingstatistics({p:pending}))
-
-
+  
+  
 
 
 
@@ -62,39 +43,6 @@ function Claims() {
 
 
 
-  // function getClients(): void {
-  //   axios.get("http://localhost:3000/clients")
-  //     .then((response) => {
-  //       setClients(response.data)
-
-
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     }
-  //     )
-  // }
-
-  // function getClaims(): void {
-  //   axios.get(`http://localhost:3000/claims`)
-  //     .then((response) => {
-  //       setClaims(response.data)
-
-
-
-
-  //     })
-  //     .catch((err) => {
-  //       console.log(err)
-  //     }
-  //     )
-
-  // }
-
-
-  // function getClientById(claim:Claim):Client{
-  //   return clients.find(client => client.id === claim.clientId) as Client
-  // }
 
 
 
@@ -103,28 +51,28 @@ function Claims() {
 
   let lastPostIndex: number = currentPage * postPerPage
   let firstPostIndex: number = lastPostIndex - postPerPage
-  let currentClaims: Claim[] = claims.slice(firstPostIndex, lastPostIndex)
+  let currentClaims: Claim[] = claimsperClient.slice(firstPostIndex, lastPostIndex)
 
 
-  let totalPages: number = Math.ceil(claims.length / postPerPage)
+  let totalPages: number = Math.ceil(claimsperClient.length / postPerPage)
 
 
-  const updateClaimState = (id: number, newStatus: string) => {
-    const confirmationMessage = `Êtes-vous sûr que le problème est résolu ?`;
+//   const updateClaimState = (id: number, newStatus: string) => {
+//     const confirmationMessage = `Êtes-vous sûr que le problème est résolu ?`;
 
-    if (window.confirm(confirmationMessage)) {
-        newStatus = newStatus === "pending" ? "done" : "pending";
+//     if (window.confirm(confirmationMessage)) {
+//         newStatus = newStatus === "pending" ? "done" : "pending";
 
-        axios.patch(`http://localhost:8082/claims/${id}`, { "status": newStatus })
-            .then(response => {
-                console.log("Claim status updated successfully:", response.data);
-                // Optionally, you can handle the updated claim data here
-            })
-            .catch(err => {
-                console.error("Error updating claim status:", err);
-            });
-    }
-};
+//         axios.patch(`http://localhost:8082/claims/${id}`, { "status": newStatus })
+//             .then(response => {
+//                 console.log("Claim status updated successfully:", response.data);
+//                 // Optionally, you can handle the updated claim data here
+//             })
+//             .catch(err => {
+//                 console.error("Error updating claim status:", err);
+//             });
+//     }
+// };
 
 
 
@@ -149,8 +97,8 @@ function Claims() {
           <thead>
             <tr >
               <th className='text-white px-[20px]'>Creator</th>
-              <th className='text-white'>Claim</th>
-              <th className='text-white'>Contact</th>
+              <th className='text-white'>Content</th>
+              <th className='text-white'>Created At</th>
               <th className='text-white'>Status</th>
             </tr>
           </thead>
@@ -180,10 +128,10 @@ function Claims() {
                     {claim.content}
                   </td>
 
-                  <td className="font-bold text-white">{customer?.contact}</td>
+                  <td className="font-bold text-white">{claim?.createdAt}</td>
 
                   <th >
-                    <span onClick={() => updateClaimState(claim.id,claim.status)} className={`badge w-[100px] h-[30px] cursor-pointer ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span  className={`badge w-[100px] h-[30px]  ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                       <span className={`pr-1 ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
@@ -212,4 +160,4 @@ function Claims() {
   )
 }
 
-export default Claims
+export default CustomerClaims

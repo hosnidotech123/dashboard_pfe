@@ -60,7 +60,7 @@ function Main() {
                 <Route path='/statistics' element={<Statistics/>}/>
                 <Route path='/clients/:customerId' element={<ClientDetails/>} />
                 <Route path='/sendclaim' element={<SendClaim/>}/>
-                <Route path='/notifications/:customerId' element={<SendNotification/>}/>
+                <Route path='clients/notifications/:customerId' element={<SendNotification/>}/>
                 <Route path='mynotifications' element={<CustomerNotifications/>}/>
               </Routes>
             

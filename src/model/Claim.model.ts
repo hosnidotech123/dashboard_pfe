@@ -3,9 +3,10 @@ import { Customer } from "./Customer.model";
 export interface Claim{
     id:number
     content:string
-    clientId:number
+    customerId:number
     status:string
     customer:Customer
+    createdAt:string
     
  }
 
