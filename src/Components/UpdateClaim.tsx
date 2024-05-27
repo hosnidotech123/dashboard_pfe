@@ -1,60 +1,56 @@
-import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useNavigate, useParams } from 'react-router-dom'
 import { useAppSelector } from '../features/store'
-import { notificationRequest } from '../model/notificationRequest.model'
 import axios from 'axios'
+import { Claim } from '../model/Claim.model'
 
-function SendNotification() {
 
-    let { customerId } = useParams()
 
-    let customers = useAppSelector(state => state.customer.customers)
-    let customer = customers?.find(c => c.id === parseInt(customerId || ""))
 
-    let [notificationRequest, setNotificationRequest] = useState<notificationRequest>(
-        {
-            content: "",
-            customerId: parseInt(customerId || "")
-        }
-    )
 
-    // let handleForm=(e: React.FormEvent<HTMLFormElement>)=>{
+function UpdateClaim() {
 
-    //     e.preventDefault();
-    //     alert(JSON.stringify(notificationRequest))
+  let {claimId}= useParams()
 
-    // }
+  
 
-    const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        axios.post('http://localhost:8083/notifications', notificationRequest)
+  let claims=useAppSelector(state=>state.claim.claims)
+
+  let claimById=claims?.find(c=>c.id===parseInt(claimId||"")) as Claim
+
+  let [claimUpdate,setClaimUpdate]=useState<Claim>(claimById)
+
+
+  let navigate=useNavigate()
+
+  const handleForm = (e: React.FormEvent<HTMLFormElement>) => {
+    const confirmationMessage = `Êtes-vous sûr que le problème est résolu ?`;
+
+    if (window.confirm(confirmationMessage)) {
+        
+
+        axios.patch(`http://localhost:8082/claims/${claimUpdate?.id}`, { "content": claimUpdate?.content })
             .then(response => {
-                console.log('Claim sent successfully:', response.data);
-                setNotificationRequest({
-                    content: "",
-                    customerId: parseInt(customerId || "")
-                })
-
+                console.log("Claim status updated successfully:", response.data);
+                navigate(-1)
+                // Optionally, you can handle the updated claim data here
             })
-            .catch(error => {
-                console.error('Error sending claim:', error);
-
+            .catch(err => {
+                console.error("Error updating claim status:", err);
             });
-    };
+    }
+  };
 
-    // useEffect(()=>{
-    //     axios.get("http://localhost:8888/NOTIFICATION-SERVICE/notifications")
-    //     .then(res=>console.log(res.data))
-    //     .catch(err=>console.log(err))
-    // },[])
 
+
+ 
 
 
 
 
-
-    return (
-        <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+  return (
+    
+    <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
             <div className="mx-auto max-w-lg text-center">
                 <h1 className="text-2xl font-bold text-blue-500 sm:text-3xl">Get started today!</h1>
                 <p className='text-gray-400  font-bold py-1'>
@@ -73,8 +69,8 @@ function SendNotification() {
                         type="text"
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
                         placeholder="Username"
-                        value={customer?.id}
-
+                        value={claimUpdate?.id}
+                        
                     />
                 </div>
 
@@ -82,13 +78,15 @@ function SendNotification() {
                     <label htmlFor="username" className="sr-only">Username</label>
                     <input
                         required
-                        disabled
+                        
                         type="text"
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
                         placeholder="Username"
-                        value={customer?.username}
+                        value={claimUpdate?.content}
+                        onChange={(e)=>setClaimUpdate({...claimById,content:e.target.value})}
 
                     />
+                    
                 </div>
 
                 <div>
@@ -99,7 +97,7 @@ function SendNotification() {
                         type="text"
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
                         placeholder="Company name"
-                        value={customer?.company}
+                        value={claimUpdate?.createdAt}
 
                     />
                 </div>
@@ -110,11 +108,12 @@ function SendNotification() {
                     <label htmlFor="content" className="sr-only">Content</label>
                     <input
                         required
+                        disabled
                         type="text"
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
                         placeholder="Set Notification to Client"
-                        value={notificationRequest.content}
-                        onChange={(e) => setNotificationRequest({ ...notificationRequest, content: e.target.value })}
+                        value={claimUpdate?.customer.username}
+                       
 
                     />
                 </div>
@@ -126,12 +125,12 @@ function SendNotification() {
                         type="submit"
                         className="inline-block rounded-lg w-full bg-blue-500 px-5 py-3 text-sm font-medium text-white"
                     >
-                        Send Notification
+                        Update Claim
                     </button>
                 </div>
             </form>
         </div>
-    )
+  )
 }
 
-export default SendNotification
+export default UpdateClaim

@@ -6,10 +6,12 @@ import { Claim } from "../model/Claim.model"
 import { Customer } from "../model/Customer.model"
 
 
-import { FaCircle } from "react-icons/fa";
+import { FaCircle, FaRegTrashAlt } from "react-icons/fa";
 // import { addDonestatistics, addPendingstatistics } from '../features/statisticsSlice';
 import { useAppSelector } from '../features/store';
 import axios from 'axios';
+import { GrUpdate } from 'react-icons/gr';
+import { useNavigate } from 'react-router-dom';
 
 
 
@@ -17,20 +19,20 @@ import axios from 'axios';
 function CustomerClaims() {
 
 
-  let claims=useAppSelector(state=>state.claim.claims) as Claim[]
+  let claims = useAppSelector(state => state.claim.claims) as Claim[]
 
-  let user=useAppSelector(state=>state.user.user)
+  let user = useAppSelector(state => state.user.user)
 
-  let claimsperClient=claims.filter(c=>c.customerId===user?.id) as Claim[]
+  let claimsperClient = claims.filter(c => c.customerId === user?.id) as Claim[]
 
 
   // useEffect(()=>{
   //   console.log(claimsperClient)
   // },[])
 
-  
-  
-  
+
+
+
 
 
 
@@ -57,26 +59,48 @@ function CustomerClaims() {
   let totalPages: number = Math.ceil(claimsperClient.length / postPerPage)
 
 
-//   const updateClaimState = (id: number, newStatus: string) => {
-//     const confirmationMessage = `Êtes-vous sûr que le problème est résolu ?`;
+  //   const updateClaimState = (id: number, newStatus: string) => {
+  //     const confirmationMessage = `Êtes-vous sûr que le problème est résolu ?`;
 
-//     if (window.confirm(confirmationMessage)) {
-//         newStatus = newStatus === "pending" ? "done" : "pending";
+  //     if (window.confirm(confirmationMessage)) {
+  //         newStatus = newStatus === "pending" ? "done" : "pending";
 
-//         axios.patch(`http://localhost:8082/claims/${id}`, { "status": newStatus })
-//             .then(response => {
-//                 console.log("Claim status updated successfully:", response.data);
-//                 // Optionally, you can handle the updated claim data here
-//             })
-//             .catch(err => {
-//                 console.error("Error updating claim status:", err);
-//             });
-//     }
-// };
-
-
+  //         axios.patch(`http://localhost:8082/claims/${id}`, { "status": newStatus })
+  //             .then(response => {
+  //                 console.log("Claim status updated successfully:", response.data);
+  //                 // Optionally, you can handle the updated claim data here
+  //             })
+  //             .catch(err => {
+  //                 console.error("Error updating claim status:", err);
+  //             });
+  //     }
+  // };
 
 
+
+
+
+ let deleteClaimById=(id:number)=>{
+    if(confirm("are you sure you wanna delete this claim")){
+      axios.delete(`http://localhost:8082/claims/${id}`)
+  .then(response => {
+    console.log(`Deleted post with ID ${id}`);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+    }
+
+    else{
+      return null
+    }
+ }
+
+ let navigate=useNavigate()
+
+  useEffect(()=>{
+
+  },[claims])
 
 
 
@@ -87,7 +111,7 @@ function CustomerClaims() {
 
   return (
     <div className='mt-[16px]'>
-      
+
       <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
 
       <div className='mt-[40px]'>
@@ -96,10 +120,11 @@ function CustomerClaims() {
 
           <thead>
             <tr >
-              <th className='text-white px-[20px]'>Creator</th>
+              <th className='text-white px-[20px]'>Id</th>
               <th className='text-white'>Content</th>
               <th className='text-white'>Created At</th>
               <th className='text-white'>Status</th>
+              <th className='text-white'>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -107,38 +132,43 @@ function CustomerClaims() {
 
             {currentClaims && currentClaims.map((claim, index) => {
               // let client = getClientById(claim) as Client
-              let customer=claim.customer
+              let customer = claim.customer
 
               return (
-                <tr key={customer?.id}>
+                <tr key={index}>
                   <td className='px-[20px]'>
                     <div className="flex items-center gap-3">
-                      <div className="avatar">
-                        <div className="mask mask-squircle w-12 h-12">
-                          <img src={customer?.image} alt="Avatar Tailwind CSS Component" />
-                        </div>
-                      </div>
-                      <div>
-                        <div className="font-bold text-white">{customer?.username}</div>
-                        <div className="text-sm text-black">{customer?.company}</div>
-                      </div>
+                      <div className="font-bold text-white">{claim?.id}</div>
                     </div>
                   </td>
                   <td className="font-bold text-white">
-                    {claim.content}
+                    {claim?.content}
                   </td>
 
                   <td className="font-bold text-white">{claim?.createdAt}</td>
 
                   <th >
-                    <span  className={`badge w-[100px] h-[30px]  ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
-                      <span className={`pr-1 ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span className={`badge w-[100px] h-[30px]  ${claim?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                      <span className={`pr-1 ${claim?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
-                      {claim.status.toLowerCase()}
+                      {claim?.status}
                     </span>
 
                   </th>
+
+
+                  <td className='grid grid-flow-col'>
+                    <button className='bg-gradient-to-r from-violet-500 to-fuchsia-500 w-[35px] h-[35px] rounded-md flex justify-center items-center' onClick={() => navigate(`myclaims/${claim?.id}`)}>
+                      <GrUpdate className='cursor-pointer text-white' />
+                    </button>
+
+                    <button className='bg-red-500 w-[35px] h-[35px] rounded-md flex justify-center items-center' onClick={() => deleteClaimById(claim?.id)}>
+                      <FaRegTrashAlt className='cursor-pointer text-white' />
+                      
+                    </button>
+                    
+                  </td>
                 </tr>
               )
             })}

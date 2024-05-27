@@ -10,6 +10,8 @@ import { Customer } from "../model/Customer.model"
 import { useAppSelector } from '../features/store';
 import { useNavigate } from 'react-router-dom';
 import { IoNotificationsSharp } from 'react-icons/io5';
+import { GrUpdate } from 'react-icons/gr';
+import { FaRegTrashAlt } from 'react-icons/fa';
 
 
 
@@ -80,7 +82,21 @@ function Notifications() {
 
 
 
- 
+  let deleteNotifById=(id:number)=>{
+    if(confirm("are you sure you wanna delete this claim")){
+      axios.delete(`http://localhost:8083/notifications/${id}`)
+  .then(response => {
+    console.log(`Deleted post with ID ${id}`);
+  })
+  .catch(error => {
+    console.error(error);
+  });
+    }
+
+    else{
+      return null
+    }
+ }
 
 
 
@@ -101,6 +117,7 @@ function Notifications() {
               <th className='text-white'>Email</th>
               <th className='text-white'>Contact</th>
               <th className='text-white flex items-center'><IoNotificationsSharp style={{ marginRight: "5px" }} />Notification</th>
+              <th className='text-white'>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -129,6 +146,17 @@ function Notifications() {
                   </td>
                   <td className="font-bold text-white">{customers.find(c=>c.id===notif.customerId)?.contact}</td>
                  <td className='text-white font-bold'>{notif.content}</td>
+                 <td className='grid grid-flow-col'>
+                    <button className='bg-gradient-to-r from-violet-500 to-fuchsia-500 w-[35px] h-[35px] rounded-md flex justify-center items-center' onClick={() => alert(notif.id)}>
+                      <GrUpdate className='cursor-pointer text-white' />
+                    </button>
+
+                    <button className='bg-red-500 w-[35px] h-[35px] rounded-md flex justify-center items-center' onClick={() => deleteNotifById(notif?.id)}>
+                      <FaRegTrashAlt className='cursor-pointer text-white' />
+                      
+                    </button>
+                    
+                  </td>
                 </tr>
               )
             })}

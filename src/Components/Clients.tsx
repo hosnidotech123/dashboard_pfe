@@ -113,7 +113,7 @@ function Clients() {
                       details</button>
                   </th>
                   <th>
-                    <button onClick={() => navigate(`notifications/${user.id}`)} className="bg-green-400 hover:bg-green-500 text-white font-bold py-2 px-4 rounded-full">
+                    <button onClick={() => navigate(`notifications/${user.id}`)} className="bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-2 px-4 rounded-full">
                       Send</button>
                   </th>
                 </tr>

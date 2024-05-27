@@ -35,7 +35,7 @@ function App() {
   let pending: number = 0
 
   for (let claim of claims) {
-    if (claim.status.toLowerCase() === "done") {
+    if (claim?.status === "done") {
       done = done + 1
     }
     else {

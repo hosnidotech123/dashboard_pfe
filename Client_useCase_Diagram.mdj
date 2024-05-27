@@ -682,7 +682,7 @@
 											"top": 414.5,
 											"width": 182,
 											"height": 13,
-											"text": "Envoyer les réclamations"
+											"text": "Envoyer des réclamations"
 										},
 										{
 											"_type": "LabelView",
@@ -4077,7 +4077,7 @@
 					"_parent": {
 						"$ref": "AAAAAAFF+qBWK6M3Z8Y="
 					},
-					"name": "Envoyer les réclamations",
+					"name": "Envoyer des réclamations",
 					"ownedElements": [
 						{
 							"_type": "UMLInclude",
