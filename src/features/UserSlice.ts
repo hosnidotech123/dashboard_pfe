@@ -20,7 +20,7 @@ interface UserState {
 // });
 
 const initialState: UserState = {
-  user: {id:1,username:"admin",password:"1234",roles:["admin"]},
+  user: {id:1,username:"admin",password:"1234",roles:["user"]},
   isLoading:false,
   hasError:""
 }

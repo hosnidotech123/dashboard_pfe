@@ -101,6 +101,11 @@ function Notifications() {
 
 
 
+ let navigate=useNavigate()
+
+
+
+
 
   return (
     <div className='mt-[16px]'>
@@ -147,7 +152,7 @@ function Notifications() {
                   <td className="font-bold text-white">{customers.find(c=>c.id===notif.customerId)?.contact}</td>
                  <td className='text-white font-bold'>{notif.content}</td>
                  <td className='grid grid-flow-col'>
-                    <button className='bg-gradient-to-r from-violet-500 to-fuchsia-500 w-[35px] h-[35px] rounded-md flex justify-center items-center' onClick={() => alert(notif.id)}>
+                    <button className='bg-gradient-to-r from-violet-500 to-fuchsia-500 w-[35px] h-[35px] rounded-md flex justify-center items-center' onClick={() => navigate(`${notif.id}`)}>
                       <GrUpdate className='cursor-pointer text-white' />
                     </button>
 

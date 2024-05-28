@@ -12,6 +12,7 @@ import SendClaim from './SendClaim'
 import SendNotification from './SendNotification'
 import CustomerNotifications from './CustomerNotifications'
 import UpdateClaim from './UpdateClaim'
+import UpdateNotification from './UpdateNotification'
 
 
 
@@ -74,6 +75,7 @@ function Main() {
                 <Route path='*' element={<Dashboard/>}/>
                 <Route path='/clients' element={<Clients/>}/>
                 <Route path='/notifications' element={<Notifications/>}/>
+                <Route path='/notifications/:notifId' element={<UpdateNotification/>}/>
                 <Route path='/claims' element={<Claims/>}/>
                 <Route path='/statistics' element={<Statistics/>}/>
                 <Route path='/clients/:customerId' element={<ClientDetails/>} />
