@@ -1,0 +1,94 @@
+Je souhaite exprimer ma profonde gratitude envers les personnes qui ont joué un rôle essentiel dans la réalisation de ce projet et dans l'enrichissement de mon expérience au sein de l'entreprise "SOGERTEL".
+Tout d'abord, je tiens à remercier chaleureusement mon encadrant académique, Monsieur Rachid Dehbi, pour ses conseils avisés, son soutien constant et ses orientations précieuses tout au long de ce projet. Ses connaissances approfondies et son engagement envers mon développement académique ont été une source d'inspiration et de motivation continue.
+J'adresse également mes sincères remerciements à mon encadrant professionnel, Monsieur Nassim El Khalil, au sein de l'entreprise "SOGERTEL". Sa disponibilité, son expertise et ses encouragements ont été déterminants pour la réussite de ce projet de gestion de réclamations et notifications. Son soutien actif et son partage d'expérience ont été des atouts inestimables tout au long de cette aventure.
+Je souhaite également exprimer ma reconnaissance envers les membres du jury d'évaluation, Monsieur [Nom] et Monsieur [Nom], pour leur temps, leurs observations constructives et leur évaluation minutieuse de ce rapport. Leurs retours avisés ont été essentiels pour l'amélioration et la finalisation de ce travail.
+Un remerciement particulier à l'école EMSI, qui a fourni un cadre propice à mon apprentissage et à ma croissance académique. Les connaissances et compétences acquises au sein de cette institution m'ont permis d'aborder ce projet avec confiance et détermination.
+Enfin, je tiens à remercier toute l'équipe de "SOGERTEL" pour leur accueil chaleureux, leur collaboration et les nombreuses opportunités d'apprentissage qu'ils m'ont offertes. Leur engagement envers l'excellence et leur volonté de partager leurs connaissances ont grandement contribué à ma croissance professionnelle.
+
+
+Etude préliminaire 
+L'étude préliminaire consiste à analyser les besoins, les contraintes et les objectifs du projet avant de passer à la phase de conception. Elle vise à recueillir des informations sur les exigences fonctionnelles et non fonctionnelles du système, à identifier les acteurs principaux et à définir les fonctionnalités clés à implémenter. Cette phase permet de planifier les étapes suivantes du projet et dessiner l'architecture générale du système.
+
+Les acteurs du système 
+Un acteur incarne le rôle d'une entité externe qui interagit avec le système en effectuant des actions sur celui-ci. En fonction des fonctionnalités offertes par notre système, nous avons identifié deux catégories d'intervenants :
+
+Administrateur : L'administrateur est chargé de superviser le bon fonctionnement de l'application. Ses responsabilités comprennent la gestion des réclamations, l'envoi de notifications aux clients, la gestion des comptes clients. Pour accéder à ces fonctionnalités, l'administrateur doit s'authentifier à l'aide d'un identifiant et d'un mot de passe.
+
+Client : Le client est l'utilisateur principal de l'application. Il a la possibilité de soumettre des réclamations, de consulter l'état de ses réclamations, de recevoir des notifications, de mettre à jour son profil. La connexion est obligatoire pour pouvoir soumettre une réclamation. Il convient de noter que le visiteur du site et le client sont considérés comme un unique acteur.
+
+
+
+
+Description des rôles de l’administrateur 
+
+•	Gérer son profil : Ce cas d'utilisation permet à l’administrateur de consulter, de désactiver, de supprimer et d'ajouter des comptes utilisateur pour assurer la gestion des accès à l'application.
+
+
+•	Gestion des réclamations : L'administrateur peut consulter, traiter et suivre les réclamations soumises par les clients. Cela inclut la capacité à attribuer des réclamations à des membres de l'équipe, à ajouter des commentaires, à mettre à jour l'état des réclamations et à les marquer comme résolues.
+
+•	Gérer les notifications : Permet à l’administrateur d'envoyer des notifications aux clients. Cela peut inclure des mises à jour sur l'état de leurs réclamations, des rappels pour des actions à effectuer, ou des informations importantes concernant le service ou les produits.
+
+
+•	Consulter les statistiques : L’administrateur peut consulter des statistiques sur les réclamations, telles que le nombre de réclamations en attente, résolues. Cela aide à surveiller la performance du système et à prendre des décisions informées pour l'améliorer.
+
+•	Gérer les comptes clients : Cette fonctionnalité permet à l'administrateur d'accéder aux comptes des clients, de gérer les informations relatives à leur compte, de résoudre les problèmes éventuels et d'assurer le bon fonctionnement de l'application.
+
+•	Consulter les historiques : L’administrateur peut consulter l'historique des réclamations et des actions prises par l'équipe pour chaque réclamation, ce qui permet de suivre les étapes et de maintenir une trace des interactions.
+
+
+Description des rôles de client 
+
+•	Consulter les produits et services : Le client peut consulter les différents produits ou services proposés sur la plateforme, ainsi que leurs caractéristiques et leurs prix.
+
+•	Créer une réclamation : Le client peut soumettre une réclamation s'il rencontre un problème avec un produit ou un service. Il fournit les détails de sa réclamation et peut joindre des éléments de preuve si nécessaire.
+
+
+•	Consulter l'état de sa réclamation : Le client peut suivre l'état de sa réclamation depuis sa soumission jusqu'à sa résolution. Il peut voir si sa réclamation est en attente de traitement, en cours de traitement ou résolue.
+
+•	Recevoir des notifications : Le client peut recevoir des notifications sur l'état de sa réclamation, les mises à jour importantes concernant le service ou les produits, ainsi que d'autres informations pertinentes.
+
+
+•	Consulter son historique : Le client peut consulter l'historique de ses réclamations précédentes, y compris les actions prises par l'équipe pour résoudre chaque réclamation.
+
+•	Modifier son profil : Le client peut modifier ses informations personnelles telles que son adresse, son numéro de téléphone, etc., pour assurer la précision des informations stockées dans l'application.
+
+
+•	Consulter les réponses : Une fois qu'une réclamation a été traitée par l'équipe, le client peut consulter la réponse apportée à sa réclamation pour vérifier si le problème a été résolu de manière satisfaisante.
+
+
+
+Besoins fonctionnels 
+Une étude a été menée, permettant de dégager les besoins fonctionnels suivants pour une application web qui gère les réclamations des clients et envoie des notifications par l'administrateur :
+
+•	Gestion des réclamations : Les clients doivent pouvoir soumettre leurs réclamations via l'application mobile. L'administrateur doit pouvoir consulter, traiter et suivre ces réclamations jusqu'à leur résolution. Cela inclut la possibilité de noter l'état d'avancement de chaque réclamation, d'attribuer des actions à des membres de l'équipe, et de maintenir un historique des interactions avec le client.
+
+•	Notifications par l'administrateur : L'administrateur doit pouvoir envoyer des notifications aux clients. Cela peut inclure des mises à jour sur l'état de leur réclamation, des rappels pour des actions à effectuer, ou des informations importantes concernant le service ou les produits.
+
+•	Gestion des clients : L'administrateur doit pouvoir consulter et mettre à jour les informations des clients, telles que leurs coordonnées, historique des réclamations.
+
+•	Interface utilisateur conviviale : L'application doit fournir une interface utilisateur conviviale et intuitive pour l'administrateur. Cela comprend la possibilité de naviguer facilement entre les réclamations en attente, en cours et résolues, ainsi que d'envoyer des notifications aux clients en quelques clics.
+
+
+
+
+Besoins non fonctionnels 
+Les besoins non fonctionnels sont des spécifications qui n'englobent pas directement le comportement du système, mais qui identifient plutôt les contraintes tant internes qu'externes qui lui sont associées.
+
+•	Performance : L'application doit être rapide et réactive, même lorsqu'elle est utilisée par plusieurs utilisateurs simultanément. Les temps de chargement doivent être minimaux pour assurer une expérience fluide.
+
+•	Sécurité : La sécurité des données des clients et des réclamations est primordiale. L'application doit être conforme aux normes de sécurité les plus élevées, en utilisant des mesures telles que le cryptage des données, l'authentification robuste et le contrôle d'accès.
+
+•	Disponibilité : L'application doit être disponible en permanence pour permettre aux clients de soumettre des réclamations et à l'administrateur de les traiter. Les temps d'arrêt doivent être réduits au minimum, et des mesures de sauvegarde doivent être mises en place pour éviter toute perte de données en cas de panne.
+
+•	Évolutivité : L'application doit être capable de gérer une augmentation du nombre de réclamations et d'utilisateurs sans compromettre ses performances. Elle doit être conçue de manière à pouvoir être facilement étendue et mise à l'échelle en cas de besoin.
+
+•	Convivialité : L'interface utilisateur doit être conviviale et intuitive, tant pour les clients soumettant des réclamations que pour l'administrateur les traitant. Les fonctionnalités doivent être facilement accessibles et compréhensibles, sans nécessiter de formation approfondie.
+
+•	Auditabilité : Toutes les actions effectuées par les utilisateurs, y compris les modifications apportées aux réclamations par l'administrateur, doivent être enregistrées dans des journaux d'audit pour assurer la traçabilité et la responsabilité.
+
+
+
+
+
+Diagramme des cas d’utilisations 
+Les diagrammes de cas d'utilisation formalisent les interactions entre les acteurs et le système de manière standardisée. Ils offrent une représentation visuelle des actions effectuées par un acteur en collaboration avec le système, aboutissant à un résultat. Il est important de noter que cela ne décrit pas le fonctionnement interne de la solution, mais plutôt comment les acteurs vont utiliser le système.

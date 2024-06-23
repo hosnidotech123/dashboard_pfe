@@ -14,6 +14,8 @@ import CustomerNotifications from './CustomerNotifications'
 import UpdateClaim from './UpdateClaim'
 import UpdateNotification from './UpdateNotification'
 
+import adminP from '../assets/admin.png'
+
 
 
 function Main() {
@@ -59,10 +61,10 @@ function Main() {
                     </button>
                     <div  className="avatar online ml-2">
                         <div className="w-10 rounded-full">
-                          <img src="https://plus.unsplash.com/premium_photo-1688350839154-1a131bccd78a?q=80&w=2069&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
+                          <img src={adminP} />
                         </div>
                     </div>
-                    <h2 className='mx-2 text-black font-bold'>hello, {user?.username} !</h2>
+                    <h2 className='mx-2 text-black font-bold'>hello, User !</h2>
                     <TbLogout onClick={handleLogOut} className='w-[30px] ml-2 h-[30px] cursor-pointer text-black' />
 
                       

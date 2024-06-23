@@ -5,7 +5,7 @@ import { Pie } from 'react-chartjs-2';
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 export const data = {
-  labels: ['Linkedin', 'Facebook', 'Google', 'Green'],
+  labels: ['Linkedin', 'Facebook', 'Google', 'Instagram'],
   datasets: [
     {
       label: 'Traffic',
@@ -15,14 +15,14 @@ export const data = {
         '#0080ff',
         '#4267B2',
         '#DB4437',
-        'rgba(75, 192, 192, 0.2)',
+        '#a358e8',
         
       ],
       borderColor: [
         'rgba(0, 0, 0, 0)',
         'rgba(54, 162, 235, 1)',
         'rgba(255, 206, 86, 1)',
-        'rgba(75, 192, 192, 1)',
+        '#a358e8',
        
       ],
       borderWidth: 1,
