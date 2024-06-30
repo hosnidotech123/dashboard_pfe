@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 import { useAppSelector } from '../features/store'
 import { Customer } from '../model/Customer.model'
+import { IoEllipseSharp } from 'react-icons/io5'
 
 function ClientDetails() {
 
@@ -70,6 +71,11 @@ function ClientDetails() {
                 <div className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                     <dt className="font-medium text-gray-900">Notifications</dt>
                     <dd className="text-gray-700 sm:col-span-2">{notificationsperClient?.length}</dd>
+                </div>
+
+                <div className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt className="font-medium text-gray-900">Status</dt>
+                    <dd className=" sm:col-span-2 text-lg"><span className={`${customer?.activated==true?"text-green-500":"text-red-500"}`}><IoEllipseSharp /></span></dd>
                 </div>
                 
             </dl>

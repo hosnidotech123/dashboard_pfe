@@ -23,6 +23,10 @@ function Clients() {
 
   let customers = useAppSelector(state => state.customer.customers) as Customer[]
 
+  useEffect(()=>{
+    console.log(customers)
+  },[])
+
 
 
   let [currentPage, setCurrentPage] = useState(1)
@@ -109,7 +113,7 @@ function Clients() {
                     {user.email}
                   </td>
                   <td className="font-bold text-white">{user.contact}</td>
-                  <td className={`font-bold text-white text-[30px] ${user.activated?"text-green-500":"text-red-500"}`}><IoEllipseSharp /></td>
+                  <td className='cursor-pointer' onClick={()=>alert(user.id)}><span className={`font-bold text-[30px] ${user.activated==true?"text-green-400":"text-red-500"}`}><IoEllipseSharp /></span></td>
                   <th>
                     <button onClick={() => navigate(`${user.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
                       details</button>
