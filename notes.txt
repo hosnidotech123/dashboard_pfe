@@ -1,0 +1,3 @@
+j ai modifie classDiagram (statut,modifier) useCase diagram
+
+dans l'application admin faut creer des comptes pour les clients (je dois ajouter une interface pour une formulaire)
