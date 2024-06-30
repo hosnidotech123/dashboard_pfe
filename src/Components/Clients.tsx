@@ -60,6 +60,25 @@ function Clients() {
   let totalPages: number = Math.ceil(customers.length / postPerPage)
 
 
+  const updateCustomerState = (id: number,status:string) => {
+    const confirmationMessage = `Êtes-vous sûr que ?`;
+
+    if (window.confirm(confirmationMessage)) {
+        
+      status = status === "true" ? "false" : "true";
+
+        axios.patch(`http://localhost:8081/customers/${id}`, { "isActivated": status })
+            .then(response => {
+                console.log("Claim status updated successfully:", response.data);
+                // Optionally, you can handle the updated claim data here
+            })
+            .catch(err => {
+                console.error("Error updating claim status:", err);
+            });
+    }
+};
+
+
 
   return (
     <div className='mt-[16px]'>
@@ -113,7 +132,7 @@ function Clients() {
                     {user.email}
                   </td>
                   <td className="font-bold text-white">{user.contact}</td>
-                  <td className='cursor-pointer' onClick={()=>alert(user.id)}><span className={`font-bold text-[30px] ${user.activated==true?"text-green-400":"text-red-500"}`}><IoEllipseSharp /></span></td>
+                  <td className='cursor-pointer' onClick={()=>updateCustomerState(user.id,user?.isActivated)}><span className={`font-bold text-[30px] ${user.isActivated==="true"?"text-green-400":"text-red-500"}`}><IoEllipseSharp /></span></td>
                   <th>
                     <button onClick={() => navigate(`${user.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
                       details</button>

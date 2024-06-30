@@ -6,7 +6,7 @@ export interface Customer{
     contact:string
     email:string
     image:string
-    activated:boolean
+    isActivated:string
     
  }
 
