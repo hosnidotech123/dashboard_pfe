@@ -15,6 +15,8 @@ import UpdateClaim from './UpdateClaim'
 import UpdateNotification from './UpdateNotification'
 
 import adminP from '../assets/admin.png'
+import AddClient from './AddClient'
+import LoginPage from './LoginPage'
 
 
 
@@ -85,7 +87,8 @@ function Main() {
                 <Route path='clients/notifications/:customerId' element={<SendNotification/>}/>
                 <Route path='mynotifications' element={<CustomerNotifications/>}/>
                 <Route path='myclaims/:claimId' element={<UpdateClaim/>}/>
-                
+                <Route path='addclient' element={<AddClient/>}/>
+                <Route path='login' element={<LoginPage/>}/>
               </Routes>
             
               </div>

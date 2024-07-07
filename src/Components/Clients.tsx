@@ -4,7 +4,7 @@ import Pagination from './Pagination'
 
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
-import { IoEllipseSharp, IoNotificationsSharp } from "react-icons/io5";
+import { IoAdd, IoEllipseSharp, IoNotificationsSharp } from "react-icons/io5";
 
 import { Customer } from "../model/Customer.model"
 
@@ -23,9 +23,9 @@ function Clients() {
 
   let customers = useAppSelector(state => state.customer.customers) as Customer[]
 
-  useEffect(()=>{
+  useEffect(() => {
     console.log(customers)
-  },[])
+  }, [])
 
 
 
@@ -33,7 +33,7 @@ function Clients() {
 
   let [postPerPage, setPostPerPage] = useState(6)
 
-  let navigate=useNavigate()
+  let navigate = useNavigate()
 
 
 
@@ -60,31 +60,33 @@ function Clients() {
   let totalPages: number = Math.ceil(customers.length / postPerPage)
 
 
-  const updateCustomerState = (id: number,status:string) => {
+  const updateCustomerState = (id: number, status: string) => {
     const confirmationMessage = `Êtes-vous sûr que ?`;
 
     if (window.confirm(confirmationMessage)) {
-        
+
       status = status === "true" ? "false" : "true";
 
-        axios.patch(`http://localhost:8081/customers/${id}`, { "isActivated": status })
-            .then(response => {
-                console.log("Claim status updated successfully:", response.data);
-                // Optionally, you can handle the updated claim data here
-            })
-            .catch(err => {
-                console.error("Error updating claim status:", err);
-            });
+      axios.patch(`http://localhost:8081/customers/${id}`, { "isActivated": status })
+        .then(response => {
+          console.log("Claim status updated successfully:", response.data);
+          // Optionally, you can handle the updated claim data here
+        })
+        .catch(err => {
+          console.error("Error updating claim status:", err);
+        });
     }
-};
+  };
 
 
 
   return (
     <div className='mt-[16px]'>
-
-      <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
-
+      <div className='flex justify-between'>
+        <button onClick={() => navigate('/addclient')} className='bg-blue-500 text-white items-center  px-2 rounded-lg flex flex-row font-bold'><span>Add Client</span><span className='font-bold px-1 translate-y-[-4px] text-[30px]'>+</span></button>
+        <Pagination currentPage={currentPage} setCurrentPage={setCurrentPage} totalPages={totalPages} />
+        <h1></h1>
+      </div>
       <div className='mt-[40px]'>
         <table className={`table  bg-gradient-to-r  from-myskyblue to-blue-700`}>
           {/* head */}
@@ -132,7 +134,7 @@ function Clients() {
                     {user.email}
                   </td>
                   <td className="font-bold text-white">{user.contact}</td>
-                  <td className='cursor-pointer' onClick={()=>updateCustomerState(user.id,user?.isActivated)}><span className={`font-bold text-[30px] ${user.isActivated==="true"?"text-green-400":"text-red-500"}`}><IoEllipseSharp /></span></td>
+                  <td className='cursor-pointer' onClick={() => updateCustomerState(user.id, user?.isActivated)}><span className={`font-bold text-[30px] ${user.isActivated === "true" ? "text-green-400" : "text-red-500"}`}><IoEllipseSharp /></span></td>
                   <th>
                     <button onClick={() => navigate(`${user.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-4 rounded-full">
                       details</button>

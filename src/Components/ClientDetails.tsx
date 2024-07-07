@@ -46,6 +46,11 @@ function ClientDetails() {
                 </div>
 
                 <div className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
+                    <dt className="font-medium text-gray-900">Email</dt>
+                    <dd className="text-gray-700 sm:col-span-2">{customer?.email}</dd>
+                </div>
+
+                <div className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                     <dt className="font-medium text-gray-900">Contact</dt>
                     <dd className="text-gray-700 sm:col-span-2">{customer?.contact}</dd>
                 </div>
@@ -75,7 +80,7 @@ function ClientDetails() {
 
                 <div className="grid grid-cols-1 gap-1 p-3 even:bg-gray-50 sm:grid-cols-3 sm:gap-4">
                     <dt className="font-medium text-gray-900">Status</dt>
-                    <dd className=" sm:col-span-2 text-lg"><span className={`${customer?.activated==true?"text-green-500":"text-red-500"}`}><IoEllipseSharp /></span></dd>
+                    <dd className=" sm:col-span-2 text-lg"><span className={`${customer?.isActivated=="true"?"text-green-500":"text-red-500"}`}><IoEllipseSharp /></span></dd>
                 </div>
                 
             </dl>

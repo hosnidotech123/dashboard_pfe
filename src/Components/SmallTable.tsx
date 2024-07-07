@@ -47,7 +47,7 @@ function SmallTable() {
           <thead>
             <tr>
               <th className='text-white'>Name</th>
-              <th className='text-white'>Email</th>
+              <th className='text-white'>Company</th>
               <th className='text-white'>Contact</th>
               <th className='text-white'>Details</th>
             </tr>
@@ -57,9 +57,9 @@ function SmallTable() {
 
             {latestCustomers.map(client => {
               return (
-                <tr key={client.id}>
+                <tr  key={client.id} className='h-[10px]'>
 
-                  <td >
+                  <td>
                     <div className="flex items-center gap-3">
                       <div className="avatar">
                         <div className="mask mask-squircle w-12 h-12">
@@ -68,15 +68,14 @@ function SmallTable() {
                       </div>
                       <div>
                         <div className="font-bold text-white">{client.username}</div>
-                        <div className="text-sm text-black">{client.company}</div>
+                        
                       </div>
                     </div>
                   </td>
-                  <td className="font-bold text-white">
+                  <td className="font-bold text-white " >
                     {client.company}
-
                   </td>
-                  <td className="font-bold text-white">{client.contact}</td>
+                  <td className="font-bold text-white " >{client.contact}</td>
                   <th>
                     <button onClick={() => navigate(`clients/${client.id}`)} className="bg-white hover:bg-gray-200 text-[#0080ff] font-bold py-2 px-2 rounded-full">
                       details</button>

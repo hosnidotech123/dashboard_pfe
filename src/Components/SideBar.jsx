@@ -85,7 +85,7 @@ export default function Sidebar() {
 
         <li className={`${user.roles.includes("admin")?"":"hidden"}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/claims')} className={`${currentpage === "/claims" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <TiWarning style={{ margin: "5px" }} />
-          Claims
+          Réclamations
         </button>
         </li>
 
@@ -97,7 +97,7 @@ export default function Sidebar() {
 
         <li className={`${user.roles.includes("admin")?"":"hidden"}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/statistics')} className={`${currentpage === "/statistics" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <FaChartLine style={{ margin: "5px" }} />
-          Statistics
+          Statistiques
         </button>
         </li>
 
