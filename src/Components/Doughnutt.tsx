@@ -63,16 +63,16 @@ const options = {
     },
     title: {
       display: true,
-      text: 'Claims statistics',
+      text: 'Statistiques des réclamations',
     },
   },
 };
 
 const data = {
-  labels: [ 'Done', 'Pending'],
+  labels: [ 'Résolue', 'En attente'],
   datasets: [
     {
-      label: 'Claims',
+      label: 'Réclamations',
       data: [done,pending],
       backgroundColor: [
         '#2be28a',

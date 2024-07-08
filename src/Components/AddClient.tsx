@@ -12,6 +12,7 @@ function AddClient() {
     let [customerRequest, setCustomerRequest] = useState<Customer>({
         id: length,
         username: "",
+        password:"",
         company: "",
         contact: "",
         email: "",
@@ -27,6 +28,7 @@ function AddClient() {
                 setCustomerRequest({
                     id:length,
                     username: "",
+                    password:"",
                     company: "",
                     contact: "",
                     email: "",
@@ -41,6 +43,8 @@ function AddClient() {
             });
     };
 
+   
+
 
     useEffect(()=>{
         
@@ -51,7 +55,7 @@ function AddClient() {
             <div className="mx-auto max-w-lg text-center">
                 <h1 className="text-2xl font-bold text-blue-500 sm:text-3xl">Get started today!</h1>
                 <p className='text-gray-400  font-bold py-1'>
-                    envoyer une notification au client pour lui dire que le problème est résolu
+                    Ajouter un compte pour un nouveau client
                 </p>
             </div>
 
@@ -59,28 +63,26 @@ function AddClient() {
 
 
                 <div>
-                    <label htmlFor="id" className="sr-only">Id</label>
+                    
                     <input
                         required
-                        disabled
                         type="text"
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
                         placeholder="Username"
-                        value={customerRequest?.id}
                         
                     />
                 </div>
 
                 <div>
-                    <label htmlFor="username" className="sr-only">Username</label>
+                    <label htmlFor="password" className="sr-only">Password</label>
                     <input
                         required
                         
                         type="text"
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
-                        placeholder="Username"
+                        placeholder="Password"
                         value={customerRequest?.username}
-                        onChange={(e)=>setCustomerRequest({...customerRequest,username:e.target.value})}
+                        onChange={(e)=>setCustomerRequest({...customerRequest,password:e.target.value})}
                     />
                 </div>
 
@@ -130,7 +132,7 @@ function AddClient() {
                         type="submit"
                         className="inline-block rounded-lg w-full bg-blue-500 px-5 py-3 text-sm font-medium text-white"
                     >
-                        Send Notification
+                        AJOUTER
                     </button>
                 </div>
             </form>

@@ -149,9 +149,9 @@ function Claims() {
           <thead>
             <tr >
               <th className='text-white px-[20px]'>Creator</th>
-              <th className='text-white'>Claim</th>
+              <th className='text-white'>Réclamation</th>
               <th className='text-white'>Contact</th>
-              <th className='text-white'>Status</th>
+              <th className='text-white'>Statut</th>
             </tr>
           </thead>
           <tbody>
@@ -183,11 +183,11 @@ function Claims() {
                   <td className="font-bold text-white">{customer?.contact}</td>
 
                   <th >
-                    <span onClick={() => updateClaimState(claim.id,claim.status)} className={`badge w-[100px] h-[30px] cursor-pointer ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span onClick={() => updateClaimState(claim.id,claim.status)} className={`badge w-[105px] h-[30px] cursor-pointer ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                       <span className={`pr-1 ${claim.status.toLowerCase() === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
-                      {claim.status.toLowerCase()}
+                      {claim.status.toLowerCase()==="done"?"résolue":"en attente"}
                     </span>
 
                   </th>

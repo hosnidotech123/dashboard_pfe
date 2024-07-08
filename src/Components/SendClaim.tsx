@@ -48,7 +48,7 @@ function SendClaim() {
                     <textarea
                         required
                         className="w-full text-black font-bold rounded-lg border-solid border-[2px] border-blue-300 bg-white  p-4 pe-12 text-sm shadow-sm"
-                        placeholder="Set your Claim"
+                        placeholder="soumettez votre réclamation"
                         value={claimRequest.content}
                         onChange={(e) => setClaimRequest({ ...claimRequest, content: e.target.value })}
                     />
@@ -83,7 +83,7 @@ function SendClaim() {
                         type="submit"
                         className="inline-block rounded-lg w-full bg-blue-500 px-5 py-3 text-sm font-medium text-white"
                     >
-                        Send Claim
+                        Envoyer
                     </button>
                 </div>
             </form>

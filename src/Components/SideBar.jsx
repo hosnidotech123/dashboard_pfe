@@ -67,7 +67,7 @@ export default function Sidebar() {
                     c5.64-5.64,10.256-11.91,13.879-18.566C140.077,392.229,100.811,387.614,74.809,361.62z" />
         </svg>
 
-        <h2>Demo</h2>
+        <h2 className='font-bold'>ogertel</h2>
       </div>
       <hr style={{ margin: '30px 0px' }} />
       <ul>
@@ -103,7 +103,7 @@ export default function Sidebar() {
 
         <li className={`${user.roles.includes("admin")?"hidden":""}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/')} className={`${currentpage === "/" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoNotificationsSharp style={{ margin: "5px" }} />
-          My Claims
+          Réclamations
         </button>
         </li>
 
@@ -115,7 +115,7 @@ export default function Sidebar() {
 
         <li className={`${user.roles.includes("admin")?"hidden":""}`}><button style={{ display: "flex", alignItems: "center", marginLeft: "10px" }} onClick={() => navigate('/mynotifications')} className={`${currentpage === "/mynotifications" ? "text-pink-300" : "text-white"} text-[20px]   font-bold w-[100%]`}>
           <IoNotificationsSharp style={{ margin: "5px" }} />
-          My Notifications 
+           Notifications 
         </button>
         </li>
 

@@ -148,11 +148,11 @@ function CustomerClaims() {
                   <td className="font-bold text-white">{claim?.createdAt}</td>
 
                   <th >
-                    <span className={`badge w-[100px] h-[30px]  ${claim?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
+                    <span className={`badge w-[105px] h-[30px]  ${claim?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                       <span className={`pr-1 ${claim?.status === "pending" ? "text-yellow-400" : "text-green-400"} `}>
                         <FaCircle />
                       </span>
-                      {claim?.status}
+                      {claim?.status==="done"?"résolue":"en attente"}
                     </span>
 
                   </th>
