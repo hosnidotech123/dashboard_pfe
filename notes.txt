@@ -1,3 +1,52 @@
 j ai modifie classDiagram (statut,modifier) useCase diagram
 
 dans l'application admin faut creer des comptes pour les clients (je dois ajouter une interface pour une formulaire)
+
+
+
+
+### Table des Figures
+
+| **Figure** | **Titre**                                                        | **Page** |
+|------------|------------------------------------------------------------------|----------|
+| Figure 1   | 1.2: CLIENTS DE SOGERTEL                                         |          |
+| Figure 2   | 1.3 : CLIENTS DE SOGERTEL                                        |          |
+| Figure 3   | 2.1 : ARCHITECTURE DE LA METHODE SCRUM                           |          |
+| Figure 4   | 2.2: DIAGRAMME DE GANTT                                          |          |
+| Figure 5   | 3.1 : DIAGRAMME CAS D’UTILISATION                                |          |
+| Figure 6   | 3.2 : DIAGRAMME CAS D’UTILISATION                                |          |
+| Figure 7   | 3.3: DIAGRAMME DE SEQUENCE AUTHENTIFICATION                      |          |
+| Figure 8   | 3.4: DIAGRAMME DE SÉQUENCE CONSULTER LES CLIENTS                 |          |
+| Figure 9   | 3.5: DIAGRAMME DE SÉQUENCE CONSULTER LES NOTIFICATIONS           |          |
+| Figure 10  | 3.6: DIAGRAMME DE SÉQUENCE CONSULTER LES RÉCLAMATIONS            |          |
+| Figure 11  | 3.7: TRAITER LES RECLAMATIONS DES CLIENTS                        |          |
+| Figure 12  | 3.8 : DIAGRAMME DE SÉQUENCE ACTIVER DÉSACTIVER COMPTE CLIENT     |          |
+| Figure 13  | 3.9: DIAGRAMME DE SEQUENCE SUPPRIMER UNE NOTIFICATION            |          |
+| Figure 14  | 3.10: DIAGRAMME DE SEQUENCE MODIFIER UNE NOTIFICATION            |          |
+| Figure 15  | 3.11: DIAGRAMME DE SEQUENCE CREER COMPTE POUR UN CLIENT          |          |
+| Figure 16  | 3.12 : DIAGRAMME DE SÉQUENCE AFFICHER LES RÉCLAMATIONS           |          |
+| Figure 17  | 3.13 : DIAGRAMME DE SÉQUENCE CLIENT CONSULTE SES RÉCLAMATIONS    |          |
+| Figure 18  | 3.14 : DIAGRAMME DE SÉQUENCE CLIENT ENVOIE UNE RÉCLAMATION       |          |
+| Figure 19  | 3.15: DIAGRAMME DE SEQUENCE MODIFIER LE CONTENU DE LA RECLAMATION|          |
+| Figure 20  | 3.16 : DIAGRAMME DE SÉQUENCE CLIENT SUPPRIME UNE RÉCLAMATION     |          |
+| Figure 21  | 3.17: DIAGRAMME DE SEQUENCE CLIENT MODIFIER SES COORDONNÉES      |          |
+| Figure 22  | 3.18: DIAGRAMME DE CLASSE                                        |          |
+| Figure 23  | 4.19: ARCHITECTURE MICROSERVICES                                 |          |
+| Figure 24  | 4.1: SPRING BOOT LOGO                                            |          |
+| Figure 25  | 4.2: MONGO DB LOGO                                               |          |
+| Figure 26  | 4.3: JAVASCRIPT LOGO                                             |          |
+| Figure 27  | 4.4 : TYPESCRIPT LOGO                                            |          |
+| Figure 28  | 4.5: REACT JS LOGO                                               |          |
+| Figure 29  | 4.6: REDUX LOGO                                                  |          |
+| Figure 30  | 4.7: INTELLIJ IDEA LOGO                                          |          |
+| Figure 31  | 4.8: VISUAL STUDIO CODE LOGO                                     |          |
+| Figure 32  | 4.9: POSTMAN LOGO                                                |          |
+| Figure 33  | 4.10: TAILWIND CSS LOGO                                          |          |
+| Figure 34  | 4.2.1: TABLEAU DE BORD PRINCIPAL                                 |          |
+| Figure 35  | 4.2.2 : INTERFACE DE GESTION DES CLIENTS                         |          |
+| Figure 36  | 4.2.3 : INTERFACE DE GESTION DES RÉCLAMATIONS                    |          |
+| Figure 37  | 4.2.4 : INTERFACE DE GESTION DES NOTIFICATIONS                   |          |
+| Figure 38  | 4.2.5 : INTERFACE D’ANALYSE STATISTIQUE DES ACTIVITÉS DES CLIENTS|          |
+| Figure 39  | 4.2.6: INTERFACE CLIENT DE SUIVI DES RÉCLAMATIONS                |          |
+| Figure 40  | 4.2.7: INTERFACE DE SOUMISSION DES RÉCLAMATIONS                  |          |
+| Figure 41  | 4.2.8: INTERFACE CLIENT NOTIFICATIONS                            |          |
